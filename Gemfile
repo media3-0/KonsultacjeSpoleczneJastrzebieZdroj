@@ -18,6 +18,15 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise', '~> 3.4.1'
 
+# Upload plików, edytor tekstu i autoryzacja
+gem 'paperclip', '~> 4.2.1'
+
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
+gem 'cancancan', '~> 1.10'
+
+
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
