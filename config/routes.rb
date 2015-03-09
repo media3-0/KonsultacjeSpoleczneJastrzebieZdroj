@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'consultations/index'
+
+  get 'consultations/show'
+
   mount Ckeditor::Engine => '/ckeditor'
   ActiveAdmin.routes(self)
   devise_for :users
