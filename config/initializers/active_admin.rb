@@ -7,7 +7,8 @@ ActiveAdmin.setup do |config|
   config.site_title = "Konsultacje"
 
   #integracja z CKEditor
-  config.register_javascript 'ckeditor/init.js'
+
+  
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -105,7 +106,8 @@ config.authentication_method = :authenticate_admin!
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+    #config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = :destroy_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
@@ -171,7 +173,10 @@ config.authentication_method = :authenticate_admin!
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
-  #   config.register_javascript 'my_javascript.js'
+  #ckeeditor
+   config.register_javascript 'ckeditor/ckeditor.js'
+   
+   config.register_javascript 'ckeditor/init.js'
 
   # == CSV options
   #
