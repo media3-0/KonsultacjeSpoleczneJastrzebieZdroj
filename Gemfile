@@ -24,6 +24,11 @@ gem 'paperclip', '~> 4.2.1'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
 gem 'cancancan', '~> 1.10'
+#kolejne 
+
+gem 'carrierwave', '~> 0.10.0'
+
+gem 'active_admin_multi_upload', '~> 0.0.5'
 
 
 
