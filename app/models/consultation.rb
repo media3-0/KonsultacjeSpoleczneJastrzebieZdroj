@@ -1,6 +1,8 @@
 class Consultation < ActiveRecord::Base
 
-	has_many :attachments
+mount_uploader :file, FileUploader
+
+validates :title, presence: true
 
 	
 end

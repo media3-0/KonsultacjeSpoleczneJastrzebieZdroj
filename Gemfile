@@ -18,6 +18,9 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise', '~> 3.4.1'
 
+#next
+gem 'carrierwave'
+
 # Upload plików, edytor tekstu i autoryzacja
 gem 'paperclip', '~> 4.2.1'
 
@@ -25,8 +28,8 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 
 gem 'cancancan', '~> 1.10'
 #kolejne 
-
-gem 'carrierwave', '~> 0.10.0'
+gem 'rails-i18n', '~> 4.0.4'
+gem 'mini_magick'
 
 gem 'active_admin_multi_upload', '~> 0.0.5'
 
