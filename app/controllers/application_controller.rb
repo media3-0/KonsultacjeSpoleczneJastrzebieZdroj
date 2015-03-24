@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     def authenticate_admin!
   authenticate_user! 
   unless current_user.admin?
-    flash[:alert] = "This area is restricted to administrators only."
+    flash[:alert] = "Dostęp tylko dla administratorów"
     redirect_to root_path 
   end
 end

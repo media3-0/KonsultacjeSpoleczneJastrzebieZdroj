@@ -2,22 +2,24 @@
 ActiveAdmin.register Consultation do
  
 
- permit_params :title, :file, :content, :link
+ 	permit_params :title, :file, :content, :link
 
-form(:html => { :multipart => true }) do |f|
+	form(:html => { :multipart => true }) do |f|
 
-  f.semantic_errors
-   f.inputs "Stwórz konsultację" do
+	  f.semantic_errors
+		f.inputs "Stwórz konsultację" do
 
-     f.input :title
-     f.input :content, :as => :ckeditor
-     f.input :link
-     f.input :file, :as => :file
-     f.semantic_errors
+			f.input :title, :label => "Tytuł"
+			f.input :content, :as => :ckeditor, :label => "Treść"
+			f.input :link, :label => "Link do Google Sheets"
+			f.semantic_errors
 
-   end
-     f.actions
- end
+		end
+
+		f.actions do
+			f.action :submit, :label => "Stwórz konsultację"
+		end
+	 end
 
 
 end
