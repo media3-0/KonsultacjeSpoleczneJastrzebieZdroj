@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise', '~> 3.4.1'
 
+gem 'omniauth-facebook'
+
 #next
 gem 'carrierwave'
 
