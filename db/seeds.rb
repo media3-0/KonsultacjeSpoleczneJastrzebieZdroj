@@ -9,6 +9,6 @@
 
 user = User.new
 user.email = 'jakub.nekro@gmail.com'
-user.password = 'test'
+user.password = 'password'
 user.admin = true
 user.save!

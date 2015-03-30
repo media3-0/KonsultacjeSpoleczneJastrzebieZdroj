@@ -20,20 +20,16 @@ gem 'devise', '~> 3.4.1'
 
 gem 'omniauth-facebook'
 
-#next
-gem 'carrierwave'
-
-# Upload plików, edytor tekstu i autoryzacja
-gem 'paperclip', '~> 4.2.1'
-
-gem 'ckeditor', github: 'galetahub/ckeditor'
-
 gem 'cancancan', '~> 1.10'
 #kolejne 
 gem 'rails-i18n', '~> 4.0.4'
 gem 'mini_magick'
 
-gem 'active_admin_multi_upload', '~> 0.0.5'
+gem 'rich', :github => 'kreativgebiet/rich'
+
+gem "active_admin_multi_upload"
+
+gem 'paperclip'
 
 
 
