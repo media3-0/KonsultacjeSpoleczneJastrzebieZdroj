@@ -1,32 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Konsultacje</title>
+  <!-- Created by Media 3.0 -->
+  <meta charset="utf-8" />
+  <meta name="language" content="pl" />
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+  <meta name="viewport" content="width=1200" />
+  <title>Konsultacje Jastrzębie-Zdrój - platforma stworzona przez ludzi dla ludzi!</title>
+
+  <meta name="author" content="" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:title" content="Konsultacje Jastrzębie-Zdrój - platforma stworzona przez ludzi dla ludzi!" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://rafalschmidt.16mb.com/prace/konsultacjeJZ/img/socialLarge.jpg" />
+  <meta property="og:url" content="http://rafalschmidt.16mb.com/prace/konsultacjeJZ" />
+  <meta property="og:site_name" content="Konsultacje Jastrzębie-Zdrój" />
+  <meta property="og:description" content="" />
+  <meta property="og:locale" content="pl_PL" />
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+  <link rel="shortcut icon" href="<%= asset_path('icon2.ico') %>" />
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'ckeditor/ckeditor.js' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
  
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% unless user_signed_in? %>  
-  <%= link_to "Home", root_path %> |
-  <%= link_to "Login", new_user_session_path %> |
-  <%= link_to "Register", new_user_registration_path %>
-<% else %>  
-  <%= link_to "Home", root_path %> |
-  <%= "Signed in as #{current_user.email}" %> |
-    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-<% end %>
+    <header <% if @index_page %>class="fullSize"<% end %>>
+      <div class="pagewidth">
+        <a id="logoJZ" href="#"><%= image_tag "header/logoJZ.png", alt: "logo Jastrzębie-Zdrój" %></a>
+        <a id="logoKJZ" href="<%= root_path %>"><%= image_tag "header/logoKJZ.png", alt: "logo Konsultacje Jastrzębie-Zdrój" %></a>
+        <div id="headerRight">
+          <ul id="fontsTools">
+            <li><a href="#">-A</a></li>
+            <li><a href="#">A</a></li>
+            <li><a href="#">+A</a></li>
+            <li><a href="#"><u>A</u></a></li>
+          </ul>
+          <form id="search">
+            <input type="search" placeholder="szukaj..." title="szukaj"/>
+            <input type="submit" value=" " title="wyślij"/>
+          </form>
+        </div>
+        <nav>
+          <ul>
+            <li><%= link_to "Aktualne", consultations_list_path(ctype: 0) %></li>
+            <li><%= link_to "Planowane", consultations_list_path(ctype: 1) %></li>
+            <li><%= link_to "Zakończone", consultations_list_path(ctype: 2) %></li>
+          </ul>
+        </nav>
+        <% if @index_page %>
+        <h1 class="textCenter">Dobór słów i stylistyka tekstu <br/>ma duży wpływ na odbiór</h1>
+        <h2 class="textCenter">Polskie słowa są zazwyczaj dużo dłuższe, niż angielskie czy łacińskie. Ma to ogromny <br/>wpływ na wygląd nagłówków czy łamanie się tekstu w węższych kolumnach. </h2>
+        <a href="#about" class="headerMoreButton">Dowiedz się więcej</a>
+        <% end %>
+      </div>
+    </header>
 
- 
+    <%= yield %>
 
-<%= yield %>
-
- <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-
-<
-
+    <section id="newsletter">
+      <div class="pagewidth">
+        <h2 class="textCenter">Standardowym sposobem wypełniania wersji testowych stron internetowych jest użycie zlepku przypadkowych łacińskich słów znanego jako "lorem ipsum".</h2>
+        <form>
+          <input type="text" placeholder="twój adres e-mail" title="twój adres e-mail"/>
+          <input type="submit" title="Wyślij" value="Wyślij"/>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <div class="pagewidth">
+        <div id="copyright">
+          <p>Copyright © 2015 <a href="#"><strong>konsultacje.jastrzebie.pl</strong></a></p>
+          <p>Created by <a href="http://media30.pl/"><strong>Media 3.0</strong></a></p>
+        </div>
+        <ul id="socialMedia">
+          <li><a href="#" class="socialMediaIcon facebook" title="socialMedia facebook"></a></li>
+          <li><a href="#" class="socialMediaIcon twitter" title="socialMedia twitter"></a></li>
+          <li><a href="#" class="socialMediaIcon google" title="socialMedia google"></a></li>
+          <li><a href="#" class="socialMediaIcon youtube" title="socialMedia youtube"></a></li>
+        </ul>
+        <ul id="footerNav">
+          <% if user_signed_in? and current_user.admin? %>
+              <li><%= link_to "Panel Administracyjny", admin_root_path %></li>
+          <% end %>
+          <li><a href="#">Kontakt</a></li>
+          <li><a href="#">O serwisie</a></li>
+        </ul>
+      </div>
+    </footer>
 </body>
 </html>

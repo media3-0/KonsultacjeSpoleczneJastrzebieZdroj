@@ -2,7 +2,7 @@
 ActiveAdmin.register Consultation do
  
 
- 	permit_params :title, :content, :link
+ 	permit_params :title, :content, :link, :consultation_type
 
 	form(:html => { :multipart => true }) do |f|
 
@@ -11,6 +11,7 @@ ActiveAdmin.register Consultation do
 
 			f.input :title, :label => "Tytuł"
 			f.input :content, :as => :rich, :config => { :width => '76%', :height => '400px' }, :label => "Treść"
+      f.input :consultation_type, :as => :radio, :collection => { "Aktualne" => 0, "Planowane" => 1, "Zakończone" => 2}, :label => "Typ"
 			f.input :link, :label => "Link do Google Sheets"
 			f.semantic_errors
 

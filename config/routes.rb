@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   mount Rich::Engine => '/rich', :as => 'rich'
   get 'consultations/index'
-
+  get 'consultations/list'
   get 'consultations/show'
+  post 'consultations/add_comment'
 
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

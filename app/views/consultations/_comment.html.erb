@@ -1,0 +1,9 @@
+<div class="post">
+  <img src="<%= comment.user.image %>" class="avatar" alt="avatar" />
+  <div class="content">
+    <span><strong><%= comment.user.name %></strong> - <%= time_ago_in_words(comment.created_at) %> temu</span>
+    <p><%= comment.content %></p>
+    <button class="showReplyButton">pokaż odpowiedzi (<%= comment.subcomments_count %>)</button>
+    <button class="replyButton">odpowiedz</button>
+  </div>
+</div>

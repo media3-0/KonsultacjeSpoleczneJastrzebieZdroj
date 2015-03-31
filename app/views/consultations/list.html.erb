@@ -1,0 +1,16 @@
+<section id="content">
+  <div class="pagewidth">
+    <h1 class="textCenter">Aktualne konsultacje</h1>
+    <h2 class="textCenter">Standardowym sposobem wypełniania wersji testowych stron internetowych jest użycie zlepku przypadkowych łacińskich słów znanego jako "lorem ipsum". </h2>
+    <div id="articleListMainPage">
+      <% for consultation in @consultations %>
+      <a href="<%= consultations_show_path(id: consultation.id) %>" class="articleBox two">
+        <span class="textCenter">Do końca pozostało: 4 dni | 12 godzin | 15 minut</span>
+        <h3 class="textCenter"><%= consultation.title %></h3>
+        <div class="articleIconCloud">43 komentarze</div>
+      </a>
+      <% end %>
+
+    </div>
+  </div>
+</section>

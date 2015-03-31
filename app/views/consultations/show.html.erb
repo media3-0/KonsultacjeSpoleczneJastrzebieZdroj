@@ -1,2 +1,63 @@
-<h1>Consultations#show</h1>
-<p>Find me in app/views/consultations/show.html.erb</p>
+<section id="content">
+    <div class="pagewidth">
+      <article>
+        <h1><%= @consultation.title %></h1>
+        <ul class="articleInfo">
+          <li><div class="articleIcon clock"></div><span>4 dni | 12 godzin | 15 minut</span></li>
+          <li><div class="articleIcon comment"></div><span>Ilość opinii:<span class="commentscount"><%= @consultation.consultation_comments.count %></span></span></li>
+        </ul>
+        <%= raw @consultation.content %>
+        <a href="<%= @consultation.link %>" class="googleSheets">Przejdz do Arkuszy Google</a>
+        <!--comments-->
+        <div id="comment">
+          <h4><span class="commentscount"><%= @consultation.consultation_comments.count %></span> opinie pod tą konsultacją</h4>
+          <% if user_signed_in? and current_user.uid %>
+              <p id="loggedas">Zalogowano jako: <%= current_user.name %></p>
+
+              <div id="mycomment" <% unless @oldc %>style="display: none;"<% end %>>
+                <h4>Twój komentarz:</h4>
+                  <div class="post">
+                    <img src="<%= current_user.image %>" class="avatar" alt="avatar" />
+                    <div class="content">
+                      <span id="whoandago"><strong><%= current_user.name %></strong> - <%= time_ago_in_words(@oldc.created_at) if @oldc %> temu</span>
+                      <p id="commenttext"><%= @oldc.content if @oldc %></p>
+                      <button class="showReplyButton" id="answerstext">pokaż odpowiedzi (<%= @oldc.subcomments_count if @oldc %>)</button>
+                    </div>
+                  </div>
+              </div>
+
+              <% unless @oldc %>
+              <div class="post add" id="addmaincomment">
+                <img src="<%= current_user.image %>" class="avatar" alt="avatar" />
+                <div class="content">
+                  <%= form_for :consultation_comment, remote: true, url: consultations_add_comment_path, method: 'POST', disable_with: 'Dodawanie komentarza...' do |f| %>
+                      <input type="hidden" name="consultation_id" value="<%= @consultation.id %>" />
+                      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+                      <%= f.text_field :content, class: 'inputPost', placeholder: 'Podziel się swoją opinią' %>
+                    <%= f.submit value: "dodaj" %>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+          <% else %>
+          <%= link_to "zaloguj przez facebook", user_omniauth_authorize_path(:facebook), class: 'signInFacebookButton' %>
+          <% end %>
+
+          <h4>Opinie</h4>
+          <% for comment in @consultation.consultation_comments %>
+            <%= render partial: 'comment', locals: {comment: comment} %>
+          <% end %>
+        </div>
+      </article>
+      <aside>
+        <%= link_to "Więcej konsultacji", consultations_list_path(ctype: @consultation.consultation_type), class: "articleMoreButton" %>
+        <% for consultation in @consultations %>
+        <a href="#" class="articleBox post">
+          <span class="textCenter">Do końca pozostało: 4 dni | 12 godzin | 15 minut</span>
+          <h3 class="textCenter"><%= consultation.title %></h3>
+          <div class="articleIconCloud">43 komentarze</div>
+        </a>
+        <% end %>
+      </aside>
+    </div>
+</section>
