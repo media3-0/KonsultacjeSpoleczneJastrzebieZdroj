@@ -1,0 +1,7 @@
+<div class="post reply">
+  <img src="<%= subcomment.user.image %>" class="avatar" alt="avatar" />
+  <div class="content">
+    <span><strong><%= subcomment.user.name %></strong> - <%= time_ago_in_words(subcomment.created_at) %> temu</span>
+    <p><%= subcomment.content %></p>
+  </div>
+</div>

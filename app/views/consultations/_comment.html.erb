@@ -1,9 +1,11 @@
 <div class="post">
   <img src="<%= comment.user.image %>" class="avatar" alt="avatar" />
-  <div class="content">
+  <div class="content"id="comment_<%= comment.id %>">
     <span><strong><%= comment.user.name %></strong> - <%= time_ago_in_words(comment.created_at) %> temu</span>
     <p><%= comment.content %></p>
-    <button class="showReplyButton">pokaż odpowiedzi (<%= comment.subcomments_count %>)</button>
-    <button class="replyButton">odpowiedz</button>
+    <%= link_to "pokaż odpowiedzi (#{comment.subcomments_count})", consultations_get_subcomments_path(id: comment.id),
+                remote: true, id: "showanswers_#{comment.id}", class: 'showReplyButton replyToComment', disable_with: 'Wczytywanie podkomentarzy...' %>
+    <%= link_to "odpowiedz", consultations_get_subcomments_path(id: comment.id),
+                remote: true, id: "gotoreply_#{comment.id}", class: 'replyButton replyToComment instantReply', disable_with: 'Wczytywanie podkomentarzy...' %>
   </div>
 </div>

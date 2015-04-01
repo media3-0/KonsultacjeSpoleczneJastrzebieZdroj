@@ -21,7 +21,7 @@
                     <div class="content">
                       <span id="whoandago"><strong><%= current_user.name %></strong> - <%= time_ago_in_words(@oldc.created_at) if @oldc %> temu</span>
                       <p id="commenttext"><%= @oldc.content if @oldc %></p>
-                      <button class="showReplyButton" id="answerstext">pokaż odpowiedzi (<%= @oldc.subcomments_count if @oldc %>)</button>
+                      <a class="showReplyButton" id="gotocomment" href="#comment_<%= @oldc.id if @oldc %>">przejdź do komentarza</a>
                     </div>
                   </div>
               </div>
@@ -30,10 +30,10 @@
               <div class="post add" id="addmaincomment">
                 <img src="<%= current_user.image %>" class="avatar" alt="avatar" />
                 <div class="content">
-                  <%= form_for :consultation_comment, remote: true, url: consultations_add_comment_path, method: 'POST', disable_with: 'Dodawanie komentarza...' do |f| %>
+                  <%= form_for :consultation_comment, remote: true, url: consultations_add_comment_path, method: 'POST' do |f| %>
                       <input type="hidden" name="consultation_id" value="<%= @consultation.id %>" />
                       <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-                      <%= f.text_field :content, class: 'inputPost', placeholder: 'Podziel się swoją opinią' %>
+                      <%= f.text_area :content, class: 'inputPost', placeholder: 'Podziel się swoją opinią', maxlength: 5000 %>
                     <%= f.submit value: "dodaj" %>
                   <% end %>
                 </div>
@@ -52,10 +52,10 @@
       <aside>
         <%= link_to "Więcej konsultacji", consultations_list_path(ctype: @consultation.consultation_type), class: "articleMoreButton" %>
         <% for consultation in @consultations %>
-        <a href="#" class="articleBox post">
+        <a href="<%= consultations_show_path(id: consultation.id) %>" class="articleBox post">
           <span class="textCenter">Do końca pozostało: 4 dni | 12 godzin | 15 minut</span>
           <h3 class="textCenter"><%= consultation.title %></h3>
-          <div class="articleIconCloud">43 komentarze</div>
+          <div class="articleIconCloud"><%= consultation.consultation_comments.count %> komentarze</div>
         </a>
         <% end %>
       </aside>

@@ -1,185 +1,194 @@
 /* CSS Document */
 
 body{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 *{
-	color: #7e7e7e;
-	font-size: 16px;
-	font-weight: 400;
-	transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-webkit-transition: all 200ms ease;
- }
+  color: #7e7e7e;
+  font-size: 16em;
+  font-weight: 400;
+  /*transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -webkit-transition: all 200ms ease;*/
+}
 
 a{
-	text-decoration:none;
+  text-decoration:none;
 }
 
 i{
-	font-style: italic;
+  font-style: italic;
 }
 
 b, strong{
-	font-weight:600;
+  font-weight:600;
 }
 
 ::selection{
-	background: #30C37A;
-	color: #ffffff;
+  background: #30C37A;
+  color: #ffffff;
 }
 
 ::-moz-selection{
-	background: #30C37A;
-	color: #ffffff;
+  background: #30C37A;
+  color: #ffffff;
 }
 
 .pagewidth{
-	margin: 0 auto;
-	width: 1200px;	
+  margin: 0 auto;
+  width: 1200px;
 }
 
 h1{
-	font-weight: 500;
-	font-size: 48px;
-	color: #05a857;
-	padding: 60px 0 0;
-	line-height: 56px;
+  font-weight: 500;
+  font-size: 3em;
+  color: #05a857;
+  padding: 60px 0 0;
+  line-height: 1.2em;
 }
 
 h2{
-	color: #727272;
-	font-size: 24px;
-	line-height: 36px;
+  color: #727272;
+  font-size: 1.5em;
+  line-height: 1.550em;
 }
 
 .textCenter{
-	text-align: center;
+  text-align: center;
 }
 
 input,
 input:hover,
-input:focus{
-	border: 0;
-	outline: none;
+input:focus,
+textarea,
+textarea:hover,
+textarea:focus{
+  border: 0;
+  outline: none;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
 }
 
-input::-moz-focus-inner { 
-	border: 0; 
-	padding: 0; 
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 
 /* header */
 
 header{
-	background: asset_url("header/background.jpg") no-repeat center top;
-	position: relative;
-	width: 100%;
-	height: 445px;
-	background-position: 50% 0;
-	min-width: 1200px;
+  background: asset_url("header/background.jpg") no-repeat center top;
+  position: relative;
+  width: 100%;
+  height: 445px;
+  background-position: 50% 0;
+  min-width: 1200px;
+  background-size: cover;
 }
 
 header.fullSize{
-	height: 760px;
+  height: 760px;
 }
 
 header .pagewidth #logoJZ{
-	float: left;
-	margin-top: 90px;
+  float: left;
+  margin-top: 90px;
 }
 
 header .pagewidth #logoKJZ{
-	position: absolute;
-	top: 70px;
-	left: 50%;
-	margin-left: -169px;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  margin-left: -169px;
 }
 
 header .pagewidth #headerRight{
-	float: right;
-	width: 400px;
+  float: right;
+  width: 400px;
 }
 
 header .pagewidth #fontsTools{
-	padding: 10px;
-	float: right;
-	background: #05a857;
-	margin-right: 14px;
+  padding: 10px;
+  float: right;
+  background: #05a857;
+  margin-right: 14px;
 }
 
 header .pagewidth #fontsTools li{
-	display: inline-block;
+  display: inline-block;
 }
 
 header .pagewidth #fontsTools li a{
-	width: 35px;
-	padding: 6px 0;
-	background: white;
-	font-size: 14px;
-	color: #05a857;
-	text-align: center;
-	display: block;
-	margin: 0 3px;
+  width: 35px;
+  padding: 6px 0;
+  background: white;
+  font-size: 0.875em;
+  color: #05a857;
+  text-align: center;
+  display: block;
+  margin: 0 10px;
+  cursor: pointer;
 }
 
 header .pagewidth #fontsTools li a:hover,
-header .pagewidth #fontsTools li a:focus{
-	-webkit-box-shadow: 0px 0px 0px 1px rgba(24,22,23,1);
-	-moz-box-shadow: 0px 0px 0px 1px rgba(24,22,23,1);
-	box-shadow: 0px 0px 0px 1px rgba(24,22,23,1);
+header .pagewidth #fontsTools li a:focus,
+.cookiesEU-close:hover,
+.cookiesEU-close:focus{
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(24,22,23,1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(24,22,23,1);
+  box-shadow: 0px 0px 0px 1px rgba(24,22,23,1);
 }
 
 header .pagewidth #search{
-	margin-top: 34px;
-	float: right;
+  margin-top: 34px;
+  float: right;
 }
 
 header .pagewidth #search input[type="search"],
 #newsletter .pagewidth form input[type="text"]{
-	border-radius: 30px;
-	-moz-border-radius: 30px;
-	-webkit-border-radius: 30px;
-	background: white;
-	float: left;
-	width: 216px; 
-	padding: 16px 22px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
-	-moz-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
-	box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  background: white;
+  float: left;
+  width: 216px;
+  padding: 16px 22px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
+  box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
 }
 
 #newsletter .pagewidth form input[type="text"]:hover,
 #newsletter .pagewidth form input[type="text"]:focus,
 header .pagewidth #search input[type="search"]:hover,
 header .pagewidth #search input[type="search"]:focus{
-	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
-	-moz-box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
-	box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
+  box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
 }
 
 header .pagewidth #search input[type="submit"],
 #newsletter .pagewidth form input[type="submit"]{
-	background-image: asset_url("header/searchIcon.png");
-	background-color: #05a857;
-	background-repeat: no-repeat;
-	background-position: center;
-	border-radius: 30px;
-	-moz-border-radius: 30px;
-	-webkit-border-radius: 30px;
-	width: 65px;
-	padding: 16px 22px 16px 22px;
-	margin-left: -64px;
-	cursor: pointer;
-	float: left;
+  background-image: asset_url("header/searchIcon.png");
+  background-color: #05a857;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  width: 65px;
+  padding: 16px 22px 16px 22px;
+  margin-left: -64px;
+  cursor: pointer;
+  float: left;
 }
 
 header .pagewidth #search input[type="submit"]:hover,
@@ -192,242 +201,241 @@ header .pagewidth #search input[type="submit"]:focus,
 #newsletter .pagewidth form input[type="submit"]:focus,
 #content .pagewidth article #comment .signInFacebookButton:hover,
 #content .pagewidth article #comment .signInFacebookButton:focus{
-	background-color: #7e7e7e;
+  background-color: #7e7e7e;
 }
 
 header .pagewidth nav{
-	text-align: center;
-	padding-top: 60px;
-	clear: both;
+  text-align: center;
+  padding-top: 60px;
+  clear: both;
 }
 
 header .pagewidth nav ul li{
-	display: inline-block;
-	padding: 0px 18px;
+  display: inline-block;
+  padding: 0px 18px;
 }
 
 header .pagewidth nav ul li a{
-	display: inline-block;
-	text-align: center;
-	text-transform: uppercase;
-	width: 165px;
-	background-color: #05a857;
-	border-radius: 30px;
-	-moz-border-radius: 30px;
-	-webkit-border-radius: 30px;
-	color: white;
-	padding: 22px 22px 18px;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  width: 165px;
+  background-color: #05a857;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  color: white;
+  padding: 22px 22px 18px;
 }
 
 header .pagewidth nav ul li:nth-child(2) a{
-	background-color: #0fc269;
+  background-color: #0fc269;
 }
 
 header .pagewidth nav ul li:nth-child(3) a{
-	background-color: #067d42;
+  background-color: #067d42;
 }
 
 header .pagewidth nav ul li a:hover,
 header .pagewidth nav ul li a:focus{
-	background-color: #707070;
+  background-color: #707070;
 }
 
 header .pagewidth h1{
-	color: #f2ede1;
-	text-transform: uppercase;
-	font-size: 44px;
-	font-weight: 600;
-	letter-spacing: 2px;
-	text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.4)
+  color: #f2ede1;
+  text-transform: uppercase;
+  font-size: 2.750em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.4)
 }
 
 header .pagewidth h2{
-	color: #f2ede1;
-	opacity: 0.7;
-	font-size: 22px;
-	letter-spacing: 2px;
-	margin-top: 25px;
-	font-weight: 300;
-	line-height: 30px;
-	text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.4)
+  color: #f2ede1;
+  opacity: 0.7;
+  font-size: 1.375em;
+  letter-spacing: 2px;
+  margin-top: 25px;
+  font-weight: 300;
+  line-height: 1.875em;
+  text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.4)
 }
 
 header .pagewidth .headerMoreButton::before{
-	background-position: 0px 0px;
-	content: " ";
-	display: inline-block;
-	vertical-align: top;
-	background: asset_url("header/mouseIcon.png") no-repeat;
-	width: 18px;
-	height: 32px;
-	margin: -11px 20px 0 0;
+  background-position: 0px 0px;
+  content: " ";
+  display: inline-block;
+  vertical-align: top;
+  background: asset_url("header/mouseIcon.png") no-repeat;
+  width: 18px;
+  height: 32px;
+  margin: -11px 20px 0 0;
 }
 
 header .pagewidth .headerMoreButton{
-	color: #f2ede1;
-	vertical-align: top;
-	margin-top: 48px;
-	text-align: center;
-	display: inline-block;
-	width: 100%;
-	letter-spacing: 2px;
-	text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.4)
+  color: #f2ede1;
+  vertical-align: top;
+  margin-top: 48px;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
 }
 
 header .pagewidth .headerMoreButton:hover,
 header .pagewidth .headerMoreButton:focus{
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 #newsletter{
-	height: 322px;
-	background: #ebebeb;
-}
-
-#newsletter .pagewidth h2{
-	padding-top: 70px;
+  padding: 70px 0;
+  background: #ebebeb;
+  overflow: hidden;
 }
 
 #newsletter .pagewidth form{
-	width: 600px;
-	margin: 40px auto 0;
+  width: 600px;
+  margin: 40px auto 0;
 }
 
 #newsletter .pagewidth form input[type="text"]{
-	width: 464px;
+  width: 464px;
 }
 
 #newsletter .pagewidth form input[type="submit"]{
-	width: 200px;
-	color: white;
-	background-image: none;
+  width: 200px;
+  color: white;
+  background-image: none;
 }
 
 footer{
-	background: #d5d5d5;
-	height: 110px;
+  background: #d5d5d5;
+  padding-bottom: 30px;
+  overflow:hidden;
 }
 
 footer .pagewidth #copyright,
 footer .pagewidth #socialMedia,
 footer .pagewidth #footerNav{
-	width: 33%;
-	float: left;
+  width: 33%;
+  float: left;
 }
 
 footer .pagewidth #copyright{
-	margin-top: 32px;
+  margin-top: 32px;
 }
 
 footer .pagewidth #copyright p{
-	padding-top: 6px;
+  padding-top: 6px;
 }
 
 footer .pagewidth #copyright p a b:hover,
 footer .pagewidth #copyright p a b:focus,
 footer .pagewidth #footerNav li:hover,
 footer .pagewidth #footerNav li:focus{
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 footer .pagewidth #socialMedia{
-	text-align: center;
-	margin-top: 40px;
+  text-align: center;
+  margin-top: 40px;
 }
 
 footer .pagewidth #socialMedia li{
-	display: inline-block;
+  display: inline-block;
 }
 
 footer .pagewidth #socialMedia li a{
-	width: 28px;
-	height: 27px;
-	display: inline-block;
-	background: asset_url("socialIcon.png") no-repeat;
-	margin-top: 3px;
-	margin: 0 2px;
+  width: 28px;
+  height: 27px;
+  display: inline-block;
+  background: asset_url("socialIcon.png") no-repeat;
+  margin-top: 3px;
+  margin: 0 2px;
 }
 
 footer .pagewidth #socialMedia li .facebook{
-	  background-position: 0px 0px;
+  background-position: 0px 0px;
 }
 
 footer .pagewidth #socialMedia li .twitter{
-	  background-position: -27px 0px;
+  background-position: -27px 0px;
 }
 
 footer .pagewidth #socialMedia li .google{
-	  background-position: -55px 0px;
+  background-position: -55px 0px;
 }
 
 footer .pagewidth #socialMedia li .youtube{
-	  background-position: -82px 0px;
+  background-position: -82px 0px;
 }
 
 footer .pagewidth #copyright p a strong{
-	color: #05a857;
+  color: #05a857;
 }
 
 footer .pagewidth #socialMedia li a:hover,
 footer .pagewidth #socialMedia li a:focus{
-	opacity: 0.8;
+  opacity: 0.8;
 }
 
 footer .pagewidth #footerNav{
-	margin-top: 48px;
+  margin-top: 48px;
 }
 
 footer .pagewidth #footerNav li{
-	display: inline-block;
-	margin: 0 6px;
-	float: right;
+  display: inline-block;
+  margin: 0 6px;
+  float: right;
 }
 
 /* article */
 
 #content .pagewidth article{
-	width: 760px;
-	display: inline-block;
-	vertical-align: top;
-	overflow: hidden;
+  width: 760px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
 }
 
 #content .pagewidth article .articleInfo li{
-	display: inline-block;
-	list-style-type: none;
-	margin-left: 0;
+  display: inline-block;
+  list-style-type: none;
+  margin-left: 0;
 }
 
 #content .pagewidth article #articleInfo li:nht-child(2),
 #content .pagewidth article #Icon.articleInfo li:nht-child(3){
-	margin-left: 30px;
+  margin-left: 30px;
 }
 
 #content .pagewidth article .articleInfo li .articleIcon{
-	width: 16px;
-	height: 16px;
-	display: inline-block;
-	vertical-align: top;
-	background: asset_url("post/postIcon.png") no-repeat;
-	margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: top;
+  background: asset_url("post/postIcon.png") no-repeat;
+  margin-top: 3px;
 }
 
 #content .pagewidth article .articleInfo li .clock{
-	background-position: 0px 0px;
+  background-position: 0px 0px;
 }
 
 #content .pagewidth article .articleInfo li .comment{
-	background-position: -16px 0px;
+  background-position: -16px 0px;
 }
 
 #content .pagewidth article .articleInfo li .share{
-	background-position: -32px 0px;
+  background-position: -32px 0px;
 }
 
 #content .pagewidth article .articleInfo li span{
-	display: inline-block;
-	margin: 0 25px 0 15px;
-	vertical-align: top;
+  display: inline-block;
+  margin: 0 25px 0 15px;
+  vertical-align: top;
 }
 
 #content .pagewidth article p,
@@ -435,186 +443,187 @@ footer .pagewidth #footerNav li{
 #content .pagewidth article ul,
 #content .pagewidth article .googleSheets,
 #content .pagewidth article #comment h4{
-	font-size: 18px;
-	margin-top: 32px;
-	line-height: 22px;
+  font-size: 1.125em;
+  margin-top: 32px;
+  line-height: 1.375em;
 }
 
 #content .pagewidth article h3{
-	font-size: 24px;
+  font-size: 1.500em;
 }
 
 #content .pagewidth article ul li{
-	list-style-type: square;
-	margin-left: 20px;
+  list-style-type: square;
+  margin-left: 20px;
 }
 
 #content .pagewidth article .googleSheets{
-	display: block;
-	background-image: asset_url("post/googleSheets.png");
-	background-repeat: no-repeat;
-	background-position: 675px 24px;
-	width: calc(100% - 80px);
-	padding: 30px 40px 25px 40px;
-	background-color: #05a857;
-	font-size: 24px;
-	color: white;
-	font-weight: 300;
+  display: block;
+  background-image: asset_url("post/googleSheets.png");
+  background-repeat: no-repeat;
+  background-position: 675px 24px;
+  width: calc(100% - 80px);
+  padding: 30px 40px 25px 40px;
+  background-color: #05a857;
+  font-size: 1.500em;
+  color: white;
+  font-weight: 300;
 
 }
 
 #content .pagewidth article #comment{
-	padding-bottom: 50px;
-	overflow: hidden;
+  padding-bottom: 50px;
+  overflow: hidden;
 }
 
 #content .pagewidth article #comment h4{
-	width: 100%;
-	padding-bottom: 5px;
-	border-bottom: 3px solid #05a857;
-	font-weight: 500;
+  width: 100%;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #05a857;
+  font-weight: 500;
 }
 
 #content .pagewidth article #comment .signInFacebookButton{
-	margin: 12px 0 0 0!important;
+  margin: 12px 0 0 0!important;
 }
 
 #content .pagewidth article #comment .post{
-	padding-top: 12px;
-	overflow: hidden;
+  padding-top: 12px;
+  overflow: hidden;
 }
 
 #content .pagewidth article #comment .post .avatar{
-	float: left;
-	overflow: hidden;
+  float: left;
+  overflow: hidden;
 }
 
 #content .pagewidth article #comment .post .content{
-	float: right;
-	width: 700px;
-	overflow: hidden;
+  float: right;
+  width: 700px;
+  overflow: hidden;
 }
 
 #content .pagewidth article #comment .post .content span{
-	padding-top: 6px;
-	display: block;
+  padding-top: 6px;
+  display: block;
 }
 
 #content .pagewidth article #comment .post .content p{
-	margin-top: 4px;
-	font-size: 16px;
+  margin-top: 4px;
+  font-size: 1.000em;
 }
 
 #content .pagewidth article #comment .post .content .replyButton,
 #content .pagewidth article #comment .post .content .showReplyButton{
-	font-size: 14px;
-	opacity: 0.7;
-	padding: 2px 10px;
-	border: 1px solid #c7c7c7;
-	margin-top: 3px;
-	display: inline-block;
-	background: white;
-	outline: none;
-	cursor: pointer;
+  font-size: 0.875em;
+  opacity: 0.7;
+  padding: 7px 12px;
+  border: 1px solid #c7c7c7;
+  margin-top: 3px;
+  display: inline-block;
+  background: white;
+  outline: none;
+  cursor: pointer;
 }
 
 #content .pagewidth article #comment .post .content .replyButton:hover,
 #content .pagewidth article #comment .post .content .replyButton:focus,
 #content .pagewidth article #comment .post .content .showReplyButton:hover,
 #content .pagewidth article #comment .post .content .showReplyButton:focus{
-	opacity: 1;
+  opacity: 1;
 }
 
 #content .pagewidth article #comment .post.reply{
-	clear: both;
-	margin-left: 62px;
+  clear: both;
+  margin-left: 62px;
 }
 
 #content .pagewidth article #comment .post .post.reply .content{
-	width: 638px;
+  width: 638px;
 }
 
-#content .pagewidth article #comment .post.add input[type="text"]{
-	width: 79.7%;
-	padding: 14px 20px 12px;
-	border: 2px solid #05a857;
-	float: left;
+#content .pagewidth article #comment .post.add textarea{
+  width: 79.7%;
+  padding: 14px 20px 12px;
+  border: 2px solid #05a857;
+  float: left;
+  resize: vertical;
 }
 
-#content .pagewidth article #comment .post .post.add input[type="text"]{
-	width: 79%;
+#content .pagewidth article #comment .post .post.add textarea{
+  width: 79%;
 }
 
 #content .pagewidth article #comment .post.add input[type="submit"]{
-	width: 14%;
-	padding: 16px 20px 14px;
-	background: #05a857;
-	float: left;
-	color: white;
-	cursor: pointer;
+  width: 14%;
+  padding: 28px 20px 23px;
+  background: #05a857;
+  float: left;
+  color: white;
+  cursor: pointer;
 }
 
 #content .pagewidth aside{
-	display: inline-block;
-	vertical-align: top;
-	margin-left: 70px;
-	padding-top: 60px;
-	width: 360px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 70px;
+  padding-top: 60px;
+  width: 360px;
 }
 
 #content .pagewidth aside .articleMoreButton,
 #content .pagewidth article #comment .signInFacebookButton{
-	width: 100%;
-	padding: 20px 0;
-	color: white;
-	background: #05a857;
-	text-transform: uppercase;
-	display: inline-block;
-	text-align: center;
-	margin: 2px;
+  width: 100%;
+  padding: 20px 0;
+  color: white;
+  background: #05a857;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  margin: 2px;
 }
 
 /* article list */
 
 #content .pagewidth #articleListMainPage{
-	padding: 50px 0;
-	overflow: hidden;
+  padding: 50px 0;
+  overflow: hidden;
 }
 
 #content .pagewidth .articleBox{
-	display: block;
-	float: left;
-	background: #f6f6f6;
-	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
-	-moz-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
-	box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
-	padding: 40px 55px 30px;
-	margin: 2px;
+  display: block;
+  float: left;
+  background: #f6f6f6;
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
+  box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
+  padding: 40px 55px 30px;
+  margin: 2px;
 }
 
 #content .pagewidth .articleBox:hover,
 #content .pagewidth .articleBox:focus{
-	background: #05a857;
+  background: #05a857;
 }
 
 #content .pagewidth .articleBox.two{
-	width: 486px;
-	height: 196px;
+  width: 486px;
+  height: 196px;
 }
 
 #content .pagewidth .articleBox.post{
-	width: 250px;
+  width: 250px;
 }
 
 #content .pagewidth .articleBox.post h3{
-	font-size: 21px;
-	padding: 5px 0 12px;
+  font-size: 1.313em;
+  padding: 5px 0 12px;
 }
 
 #content .pagewidth .articleBox span{
-	display: inline-block;
-	width: 100%;
-	font-size: 18px;
+  display: inline-block;
+  width: 100%;
+  font-size: 1.125em;
 }
 
 #content .pagewidth .articleBox:hover span,
@@ -623,50 +632,79 @@ footer .pagewidth #footerNav li{
 #content .pagewidth .articleBox:focus h3,
 #content .pagewidth .articleBox:hover .articleIconCloud,
 #content .pagewidth .articleBox:focus .articleIconCloud{
-	color: white;
+  color: white;
 }
 
 
 #content .pagewidth .articleBox h3{
-	font-weight: 600;
-	font-size: 30px;
-	line-height: 34px;
-	color: #05a857;
-	border-bottom: 1px solid #dbdbdb;
-	padding: 5px 0 20px;
+  font-weight: 600;
+  font-size: 1.875em;
+  line-height: 1.545em;
+  color: #05a857;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 5px 0 20px;
 }
 
 #content .pagewidth .articleBox .articleIconCloud::before{
-	background-position: 0px 0px;
-	content: " ";
-	display: inline-block;
-	vertical-align: top;
-	background: asset_url("post/comment.png") no-repeat;
-	width: 24px;
-	height: 24px;
-	margin: -5px 10px 0 0;
+  background-position: 0px 0px;
+  content: " ";
+  display: inline-block;
+  vertical-align: top;
+  background: asset_url("post/comment.png") no-repeat;
+  width: 24px;
+  height: 24px;
+  margin: -5px 10px 0 0;
 }
 
 #content .pagewidth .articleBox .articleIconCloud{
-	color: #05a857;
-	width: initial;
-	vertical-align: top;
-	margin-top: 28px;
-	text-align: center;
+  color: #05a857;
+  width: initial;
+  vertical-align: top;
+  margin-top: 28px;
+  text-align: center;
 }
 
 #content .pagewidth .articleBox:hover .articleIconCloud::before,
 #content .pagewidth .articleBox:focus .articleIconCloud::before{
-	background-position: -24px 0px;
+  background-position: -24px 0px;
 }
 
 /* index */
 
 #about .pagewidth h2{
-	padding: 32px 0 60px;
+  padding: 32px 0 60px;
 }
 
 #about .pagewidth h2 img{
-	float: right;
-	padding: 30px 0 30px 70px;
+  float: right;
+  padding: 30px 0 30px 70px;
+}
+
+/* cookie */
+
+#cookiesEU-box{
+  background: #05a857;
+  overflow: hidden;
+}
+
+.cookiesEU-inner{
+  padding: 4px 12px;
+  display: inline-block;
+}
+
+.cookiesEU-text{
+  width: 90%;
+  width: calc(100% - 100px);
+  color: white;
+  float: left;
+  margin-top: 4px;
+}
+
+.cookiesEU-close{
+  padding: 15px 15px;
+  display: inline-block;
+  float:right;
+  color: #05a857;
+  background: white;
+  text-transform: uppercase;
 }

@@ -7,7 +7,7 @@
       <a href="<%= consultations_show_path(id: consultation.id) %>" class="articleBox two">
         <span class="textCenter">Do końca pozostało: 4 dni | 12 godzin | 15 minut</span>
         <h3 class="textCenter"><%= consultation.title %></h3>
-        <div class="articleIconCloud">43 komentarze</div>
+        <div class="articleIconCloud"><%= consultation.consultation_comments.count %> komentarze</div>
       </a>
       <% end %>
 

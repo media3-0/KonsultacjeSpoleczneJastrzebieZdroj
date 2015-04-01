@@ -1,0 +1,21 @@
+<section id="content">
+  <div class="pagewidth">
+    <article>
+      <h1>Podkomentarze</h1>
+      <% if @message %>
+          <p><%= @message %></p>
+      <% else %>
+          <div id="comment">
+          <div class="post">
+            <img src="<%= @comment.user.image %>" class="avatar" alt="avatar" />
+            <div class="content" id="comment_<%= @comment.id %>">
+              <span><strong><%= @comment.user.name %></strong> - <%= time_ago_in_words(@comment.created_at) %> temu</span>
+              <p><%= @comment.content %></p>
+            </div>
+            <%= render partial: 'subcomments_list', locals: { subcomments: @subcomments, comment: @comment } %>
+          </div>
+          </div>
+      <% end %>
+    </article>
+  </div>
+</section>

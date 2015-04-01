@@ -1,0 +1,17 @@
+<% for subcomment in subcomments %>
+    <%= render partial: 'subcomment', locals: {subcomment: subcomment} %>
+<% end %>
+<% if user_signed_in? and current_user.uid %>
+<div class="post reply add">
+  <img src="<%= current_user.image %>" class="avatar" alt="avatar" />
+  <div class="content">
+    <%= form_for :consultation_comment, remote: true, url: consultations_add_subcomment_path, :html => {:class => 'subcommentForm'},
+                 method: 'POST' do |f| %>
+        <input type="hidden" name="comment_id" value="<%= comment.id %>" />
+        <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+        <%= f.text_area :content, class: 'inputPost', placeholder: 'Podziel się swoją opinią', id: "subcommentInput_#{comment.id}", maxlength: 5000 %>
+        <%= f.submit value: "dodaj" %>
+    <% end %>
+  </div>
+</div>
+<% end %>

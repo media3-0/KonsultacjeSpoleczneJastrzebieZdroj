@@ -38,10 +38,9 @@
         <a id="logoKJZ" href="<%= root_path %>"><%= image_tag "header/logoKJZ.png", alt: "logo Konsultacje Jastrzębie-Zdrój" %></a>
         <div id="headerRight">
           <ul id="fontsTools">
-            <li><a href="#">-A</a></li>
-            <li><a href="#">A</a></li>
-            <li><a href="#">+A</a></li>
-            <li><a href="#"><u>A</u></a></li>
+            <li><a class="fontSizeMinus" title="Pomniejsz stronę">-A</a></li>
+            <li><a class="fontReset" title="Przywróć podstawową wielkość strony">A</a></li>
+            <li><a class="fontSizePlus" title="Powiększ stronę">+A</a></li>
           </ul>
           <form id="search">
             <input type="search" placeholder="szukaj..." title="szukaj"/>
@@ -58,7 +57,7 @@
         <% if @index_page %>
         <h1 class="textCenter">Dobór słów i stylistyka tekstu <br/>ma duży wpływ na odbiór</h1>
         <h2 class="textCenter">Polskie słowa są zazwyczaj dużo dłuższe, niż angielskie czy łacińskie. Ma to ogromny <br/>wpływ na wygląd nagłówków czy łamanie się tekstu w węższych kolumnach. </h2>
-        <a href="#about" class="headerMoreButton">Dowiedz się więcej</a>
+        <a class="headerMoreButton">Dowiedz się więcej</a>
         <% end %>
       </div>
     </header>
@@ -90,10 +89,19 @@
           <% if user_signed_in? and current_user.admin? %>
               <li><%= link_to "Panel Administracyjny", admin_root_path %></li>
           <% end %>
-          <li><a href="#">Kontakt</a></li>
-          <li><a href="#">O serwisie</a></li>
+
+          <% if user_signed_in? %>
+              <li><%= link_to "Wyloguj", destroy_user_session_path %></li>
+          <% end %>
+
+          <% unless user_signed_in? %>
+              <li><%= link_to "Zaloguj przez facebook", user_omniauth_authorize_path(:facebook) %></li>
+          <% end %>
+
+
         </ul>
       </div>
     </footer>
+<script>initializeEvents();</script>
 </body>
 </html>

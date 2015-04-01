@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'consultations/list'
   get 'consultations/show'
   post 'consultations/add_comment'
+  post 'consultations/add_subcomment'
+  get 'consultations/get_subcomments'
 
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

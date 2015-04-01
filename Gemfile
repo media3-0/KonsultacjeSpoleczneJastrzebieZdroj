@@ -30,6 +30,7 @@ gem 'rich', :github => 'kreativgebiet/rich'
 gem "active_admin_multi_upload"
 
 gem 'paperclip'
+gem 'certified'
 
 
 

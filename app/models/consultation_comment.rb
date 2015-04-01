@@ -17,4 +17,8 @@ class ConsultationComment < ActiveRecord::Base
   def subcomments_count
     ConsultationComment.count_by_sql "SELECT COUNT(*) FROM consultation_comments c WHERE c.parent_consultation_comment_id = " + id.to_s
   end
+
+  def get_subcomments
+    ConsultationComment.where(:parent_consultation_comment_id => id)
+  end
 end
