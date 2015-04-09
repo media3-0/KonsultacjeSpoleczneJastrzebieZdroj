@@ -42,8 +42,8 @@
             <li><a class="fontReset" title="Przywróć podstawową wielkość strony">A</a></li>
             <li><a class="fontSizePlus" title="Powiększ stronę">+A</a></li>
           </ul>
-          <form id="search">
-            <input type="search" placeholder="szukaj..." title="szukaj"/>
+          <form id="search" action="<%= url_for consultations_search_path %>" method="get">
+            <input type="search" placeholder="szukaj..." title="szukaj" name="q"/>
             <input type="submit" value=" " title="wyślij"/>
           </form>
         </div>
@@ -64,15 +64,6 @@
 
     <%= yield %>
 
-    <section id="newsletter">
-      <div class="pagewidth">
-        <h2 class="textCenter">Standardowym sposobem wypełniania wersji testowych stron internetowych jest użycie zlepku przypadkowych łacińskich słów znanego jako "lorem ipsum".</h2>
-        <form>
-          <input type="text" placeholder="twój adres e-mail" title="twój adres e-mail"/>
-          <input type="submit" title="Wyślij" value="Wyślij"/>
-        </form>
-      </div>
-    </section>
     <footer>
       <div class="pagewidth">
         <div id="copyright">
@@ -102,6 +93,9 @@
         </ul>
       </div>
     </footer>
-<script>initializeEvents();</script>
+<script>
+    initializeEvents();
+    initScriptsJs();
+</script>
 </body>
 </html>

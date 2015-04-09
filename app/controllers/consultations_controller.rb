@@ -6,8 +6,22 @@ class ConsultationsController < ApplicationController
     @index_page = true
   end
 
+  # TODO : edycja i usuwanie
+
+  def search
+    search_query = params[:q]
+    @consultation_type = "Wyszukiwanie tekstu: #{search_query}"
+    @consultations = Consultation.search_query(search_query)
+    render :list
+  end
+
   def list
     ctype = params[:ctype]
+    @consultation_type = case ctype.to_i
+              when 0 then 'Aktualne konsultacje'
+              when 1 then 'Planowane konsultacje'
+              when 2 then 'Zakończone konsultacje'
+            end
     @consultations = Consultation.where(consultation_type: ctype).order('created_at DESC')
   end
 
@@ -86,7 +100,6 @@ class ConsultationsController < ApplicationController
 
       format.js do
         temp = "updateComment('#{comments_count}', '#{current_user.name}', '#{time_ago_in_words(Time.now)}', '#{Rack::Utils.escape_html(comment.content).gsub(/\r/, '').gsub(/\n/, '<br>')}', '#{comment.id}');"
-        logger.error('wtf '+ temp)
         render js: temp
       end
       format.html do
@@ -116,7 +129,7 @@ class ConsultationsController < ApplicationController
   end
 
   def add_subcomment
-  parentcomment = ConsultationComment.find(params[:comment_id])
+    parentcomment = ConsultationComment.find(params[:comment_id])
     unless parentcomment
       @message = 'Zły comment id'
       return render layout: false, status: 404

@@ -1,6 +1,21 @@
 /* JavaScript Document */
 
-$(document).ready(function(){
+function textareafix(){
+    //textarea
+    autosize(document.querySelectorAll('textarea'));
+
+    var FIREFOX = /Firefox/i.test(navigator.userAgent);
+
+    if (FIREFOX) {
+        var x = document.querySelectorAll("textarea");
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.height = ((x[i].style.height.replace('px', ''))-1)+'px';
+        }
+    }
+}
+
+function initScriptsJs(){
 
     //animatescroll and zoom
     var scrollTime = 1000;
@@ -64,9 +79,8 @@ $(document).ready(function(){
         parent: jQuery('body'),
         animation: 'hide',
         use_default_css: false,
-        auto_accept: false,
+        auto_accept: false
     });
 
-    //textarea
-    autosize(document.querySelectorAll('textarea'));
-});
+    textareafix();
+}

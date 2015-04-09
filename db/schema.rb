@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401005035) do
+ActiveRecord::Schema.define(version: 20150408172324) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -43,13 +43,18 @@ ActiveRecord::Schema.define(version: 20150401005035) do
     t.integer  "parent_consultation_comment_id"
   end
 
+  add_index "consultation_comments", ["consultation_id"], name: "index_consultation_comments_on_consultation_id", using: :btree
+  add_index "consultation_comments", ["parent_consultation_comment_id"], name: "index_consultation_comments_on_parent_consultation_comment_id", using: :btree
+  add_index "consultation_comments", ["user_id"], name: "index_consultation_comments_on_user_id", using: :btree
+
   create_table "consultations", force: true do |t|
     t.string   "title"
     t.text     "content"
     t.integer  "consultation_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "link"
+    t.string   "formid"
+    t.datetime "end_date"
   end
 
   create_table "rich_rich_files", force: true do |t|

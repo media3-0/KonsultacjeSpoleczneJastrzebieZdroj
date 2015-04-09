@@ -3,11 +3,13 @@
       <article>
         <h1><%= @consultation.title %></h1>
         <ul class="articleInfo">
-          <li><div class="articleIcon clock"></div><span>4 dni | 12 godzin | 15 minut</span></li>
+          <li><div class="articleIcon clock"></div><span>Pozostało czasu: <%= distance_of_time_in_words(Time.now, @consultation.end_date) %></span></li>
           <li><div class="articleIcon comment"></div><span>Ilość opinii:<span class="commentscount"><%= @consultation.consultation_comments.count %></span></span></li>
         </ul>
         <%= raw @consultation.content %>
-        <a href="<%= @consultation.link %>" class="googleSheets">Przejdz do Arkuszy Google</a>
+        <% unless @consultation.formid.empty? %>
+            <iframe src="https://docs.google.com/forms/d/<%= @consultation.formid %>/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Ładowanie...</iframe>
+        <% end %>
         <!--comments-->
         <div id="comment">
           <h4><span class="commentscount"><%= @consultation.consultation_comments.count %></span> opinie pod tą konsultacją</h4>
@@ -20,8 +22,8 @@
                     <img src="<%= current_user.image %>" class="avatar" alt="avatar" />
                     <div class="content">
                       <span id="whoandago"><strong><%= current_user.name %></strong> - <%= time_ago_in_words(@oldc.created_at) if @oldc %> temu</span>
-                      <p id="commenttext"><%= @oldc.content if @oldc %></p>
-                      <a class="showReplyButton" id="gotocomment" href="#comment_<%= @oldc.id if @oldc %>">przejdź do komentarza</a>
+                      <p id="commenttext"><%= raw(h(@oldc.content).gsub(/\r/, '').gsub(/\n/, '<br>')) if @oldc %></p>
+                      <a class="showReplyButton" id="gotocomment" onclick="$('#comment_<%= @oldc.id if @oldc %>').animatescroll();">przejdź do komentarza</a>
                     </div>
                   </div>
               </div>
@@ -30,13 +32,20 @@
               <div class="post add" id="addmaincomment">
                 <img src="<%= current_user.image %>" class="avatar" alt="avatar" />
                 <div class="content">
-                  <%= form_for :consultation_comment, remote: true, url: consultations_add_comment_path, method: 'POST' do |f| %>
+                  <%= form_for :consultation_comment, remote: true, url: consultations_add_comment_path, html: { id: 'addmaincommentform'}, method: 'POST' do |f| %>
                       <input type="hidden" name="consultation_id" value="<%= @consultation.id %>" />
                       <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
                       <%= f.text_area :content, class: 'inputPost', placeholder: 'Podziel się swoją opinią', maxlength: 5000 %>
                     <%= f.submit value: "dodaj" %>
                   <% end %>
                 </div>
+              </div>
+
+              <div class="loadingBox" style="display: none;" id="commentloadingbox">
+                <span>trwa dodawanie opinii</span>
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
               </div>
               <% end %>
           <% else %>
@@ -53,7 +62,7 @@
         <%= link_to "Więcej konsultacji", consultations_list_path(ctype: @consultation.consultation_type), class: "articleMoreButton" %>
         <% for consultation in @consultations %>
         <a href="<%= consultations_show_path(id: consultation.id) %>" class="articleBox post">
-          <span class="textCenter">Do końca pozostało: 4 dni | 12 godzin | 15 minut</span>
+          <span class="textCenter">Do końca pozostało: <%= distance_of_time_in_words(Time.now, @consultation.end_date) %></span>
           <h3 class="textCenter"><%= consultation.title %></h3>
           <div class="articleIconCloud"><%= consultation.consultation_comments.count %> komentarze</div>
         </a>

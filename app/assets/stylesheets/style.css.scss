@@ -9,7 +9,7 @@ body{
 
 *{
   color: #7e7e7e;
-  font-size: 16em;
+  font-size: 1em;
   font-weight: 400;
   /*transition: all 200ms ease;
   -ms-transition: all 200ms ease;
@@ -74,7 +74,12 @@ textarea:focus{
   font-family: 'Roboto', sans-serif;
 }
 
-input::-moz-focus-inner {
+input::-moz-focus-inner{
+  border: 0;
+  padding: 0;
+}
+
+textarea::-moz-focus-inner{
   border: 0;
   padding: 0;
 }
@@ -517,7 +522,7 @@ footer .pagewidth #footerNav li{
 #content .pagewidth article #comment .post .content .showReplyButton{
   font-size: 0.875em;
   opacity: 0.7;
-  padding: 7px 12px;
+  padding: 3px 10px;
   border: 1px solid #c7c7c7;
   margin-top: 3px;
   display: inline-block;
@@ -544,10 +549,11 @@ footer .pagewidth #footerNav li{
 
 #content .pagewidth article #comment .post.add textarea{
   width: 79.7%;
-  padding: 14px 20px 12px;
+  padding: 15px 20px 11px;
   border: 2px solid #05a857;
   float: left;
   resize: vertical;
+
 }
 
 #content .pagewidth article #comment .post .post.add textarea{
@@ -608,7 +614,7 @@ footer .pagewidth #footerNav li{
 
 #content .pagewidth .articleBox.two{
   width: 486px;
-  height: 196px;
+  height: 226px;
 }
 
 #content .pagewidth .articleBox.post{
@@ -694,10 +700,11 @@ footer .pagewidth #footerNav li{
 
 .cookiesEU-text{
   width: 90%;
-  width: calc(100% - 100px);
+  width: calc(100% - 150px);
   color: white;
   float: left;
-  margin-top: 4px;
+  margin-top: 6px;
+  font-size: 0.9em;
 }
 
 .cookiesEU-close{
@@ -707,4 +714,71 @@ footer .pagewidth #footerNav li{
   color: #05a857;
   background: white;
   text-transform: uppercase;
+}
+
+/* loading */
+
+.loadingBox {
+  text-align: center;
+  background-color: #05a857;
+  padding: 20px 0;
+  width: 100%;
+  margin-top:12px;
+  clear: both;
+  display: inline-block;
+}
+
+.loadingBox.fullSize{
+  position: fixed;
+  top: 50%;
+  z-index: 9999;
+  -webkit-box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4);
+  margin-top: -48px;
+}
+
+.loadingBox span{
+  display: block;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.loadingBox > div {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background-color: #fff;
+
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.loadingBox .one {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.loadingBox .two {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
 }

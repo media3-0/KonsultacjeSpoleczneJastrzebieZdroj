@@ -1,5 +1,47 @@
 ---
 pl:
+  activerecord:
+    models:
+      consultation:
+        one: Konsultacja
+        few: Konsultacje
+        many: Konsultacje
+        other: Konsultacje
+      consultation_comment:
+        one: Komentarz
+        few: Komentarze
+        many: Komentarze
+        other: Komentarze
+      user:
+        one: Użytkownik
+        few: Użytkownicy
+        many: Użytkownicy
+        other: Użytkownicy
+    attributes:
+      consultation:
+        title: Tytuł
+        content: Treść
+        consultation_type: Typ konsultacji
+        created_at: Utworzono
+        updated_at: Edytowano
+        formid: Id formularza google
+        end_date: Data zakończenia
+      consultation_comment:
+        content: Treść
+        created_at: Utworzono
+        updated_at: Edytowano
+        user_id: Użytkownik
+        consultation_id: Konsultacja
+        parent_consultation_comment_id: Komentarz nadrzędny
+      user:
+        uid: Facebook ID
+        name: Imię nazwisko (facebook)
+        image: Avatar (facebook)
+        sign_in_count: Ilość logowań
+        last_sign_in_at: Ostatnio zalogowano
+        current_sign_in_ip: Adres ip
+        last_sign_in_ip: Ostatni adres ip
+        created_at: Utworzone
   date:
     abbr_day_names:
     - nie

@@ -32,8 +32,19 @@ gem "active_admin_multi_upload"
 gem 'paperclip'
 gem 'certified'
 
+gem 'annotate', '~> 2.6.6', group: :development
 
+gem 'better_errors', group: :development
 
+gem 'lol_dba', group: :development
+
+gem 'quiet_assets', group: :development
+
+gem 'rails-footnotes', '~> 4.0', group: :development
+
+gem 'rack-mini-profiler', group: :development
+
+gem 'binding_of_caller', group: :development
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -2,10 +2,10 @@
     <%= render partial: 'subcomment', locals: {subcomment: subcomment} %>
 <% end %>
 <% if user_signed_in? and current_user.uid %>
-<div class="post reply add">
+<div class="post reply add" id="subcommentForm_<%= comment.id.to_s %>">
   <img src="<%= current_user.image %>" class="avatar" alt="avatar" />
   <div class="content">
-    <%= form_for :consultation_comment, remote: true, url: consultations_add_subcomment_path, :html => {:class => 'subcommentForm'},
+    <%= form_for :consultation_comment, remote: true, url: consultations_add_subcomment_path, :html => {:class => 'subcommentForm', :id => 'scc_' + comment.id.to_s },
                  method: 'POST' do |f| %>
         <input type="hidden" name="comment_id" value="<%= comment.id %>" />
         <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
@@ -13,5 +13,11 @@
         <%= f.submit value: "dodaj" %>
     <% end %>
   </div>
+</div>
+<div class="loadingBox" style="display: none;" id="subcommentloadingbox_<%= comment.id %>">
+  <span>trwa dodawanie komentarza</span>
+  <div class="one"></div>
+  <div class="two"></div>
+  <div class="three"></div>
 </div>
 <% end %>
