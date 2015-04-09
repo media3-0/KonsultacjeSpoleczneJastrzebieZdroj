@@ -26,13 +26,8 @@ ActiveAdmin.register_page 'Dashboard' do
          panel 'Ostatnie komentarze' do
            ul do
              ConsultationComment.order(updated_at: :desc).take(5).map do |consultation_comment|
-               consult = ''
-               if consultation_comment.consultation.blank?
-                 consult = consultation_comment.consultation_comment.consultation.title
-               else
-                 consult = consultation_comment.consultation.title
-               end
-               li link_to(consultation_comment.user.name + ' - ' + consult +': ' + consultation_comment.created_at.to_s, admin_consultation_comment_path(consultation_comment))
+               next if consultation_comment.consultation.blank? and consultation_comment.consultation_comment.blank?
+               li link_to(consultation_comment.user.name + ': ' + consultation_comment.created_at.to_s, admin_consultation_comment_path(consultation_comment))
              end
            end
          end
