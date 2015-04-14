@@ -1,7 +1,6 @@
 <section id="content">
   <div class="pagewidth">
     <h1 class="textCenter"><%= @consultation_type %></h1>
-    <h2 class="textCenter">Standardowym sposobem wypełniania wersji testowych stron internetowych jest użycie zlepku przypadkowych łacińskich słów znanego jako "lorem ipsum". </h2>
     <div id="articleListMainPage">
       <% for consultation in @consultations %>
       <a href="<%= consultations_show_path(id: consultation.id) %>" class="articleBox two">

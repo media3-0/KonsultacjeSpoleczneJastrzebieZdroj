@@ -14,12 +14,13 @@
   <meta name="robots" content="index,follow" />
 
   <meta property="og:title" content="Konsultacje Jastrzębie-Zdrój - platforma stworzona przez ludzi dla ludzi!" />
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://rafalschmidt.16mb.com/prace/konsultacjeJZ/img/socialLarge.jpg" />
-  <meta property="og:url" content="http://rafalschmidt.16mb.com/prace/konsultacjeJZ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="<%= asset_url('header/logoKJZ.png') %>" />
+  <meta property="og:url" content="http://konsultacje.jastrzebie.pl/" />
   <meta property="og:site_name" content="Konsultacje Jastrzębie-Zdrój" />
-  <meta property="og:description" content="" />
+  <meta property="og:description" content="To miejsce, gdzie możecie Państwo zapoznać się z projektami i opisami ważnych przedsięwzięć podejmowanych przez nasze miasto oraz podzielić się swoimi opiniami na ich temat." />
   <meta property="og:locale" content="pl_PL" />
+  <meta property="fb:app_id" content="1386590734996335" />
 
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
@@ -34,8 +35,8 @@
 <body>
     <header <% if @index_page %>class="fullSize"<% end %>>
       <div class="pagewidth">
-        <a id="logoJZ" href="#"><%= image_tag "header/logoJZ.png", alt: "logo Jastrzębie-Zdrój" %></a>
-        <a id="logoKJZ" href="<%= root_path %>"><%= image_tag "header/logoKJZ.png", alt: "logo Konsultacje Jastrzębie-Zdrój" %></a>
+        <a id="logoJZ" href="http://www.jastrzebie.pl/"><%= image_tag 'header/logoJZ.png', alt: "logo Jastrzębie-Zdrój" %></a>
+        <a id="logoKJZ" href="<%= root_path %>"><%= image_tag 'header/logoKJZ.png', alt: "logo Konsultacje Jastrzębie-Zdrój" %></a>
         <div id="headerRight">
           <ul id="fontsTools">
             <li><a class="fontSizeMinus" title="Pomniejsz stronę">-A</a></li>
@@ -55,8 +56,8 @@
           </ul>
         </nav>
         <% if @index_page %>
-        <h1 class="textCenter">Dobór słów i stylistyka tekstu <br/>ma duży wpływ na odbiór</h1>
-        <h2 class="textCenter">Polskie słowa są zazwyczaj dużo dłuższe, niż angielskie czy łacińskie. Ma to ogromny <br/>wpływ na wygląd nagłówków czy łamanie się tekstu w węższych kolumnach. </h2>
+        <h1 class="textCenter">Zapraszamy Was do korzystania <br/>z platformy konsultacji społecznych</h1>
+        <h2 class="textCenter">To miejsce, gdzie możecie Państwo zapoznać się z projektami i opisami ważnych przedsięwzięć podejmowanych przez nasze miasto oraz podzielić się swoimi opiniami na ich temat.</h2>
         <a class="headerMoreButton">Dowiedz się więcej</a>
         <% end %>
       </div>
