@@ -24,7 +24,6 @@ if Object.const_defined?("Rich")
     # you are editing. To disable this:
     #   config.editor[:startupOutlineBlocks] = false
 
-    
     # == Image styles
     # 
     # Rich uses paperclip for image processing. You can

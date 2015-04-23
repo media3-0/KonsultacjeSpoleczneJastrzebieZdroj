@@ -35,8 +35,8 @@
 <body>
     <header <% if @index_page %>class="fullSize"<% end %>>
       <div class="pagewidth">
-        <a id="logoJZ" href="http://www.jastrzebie.pl/"><%= image_tag 'header/logoJZ.png', alt: "logo Jastrzębie-Zdrój" %></a>
-        <a id="logoKJZ" href="<%= root_path %>"><%= image_tag 'header/logoKJZ.png', alt: "logo Konsultacje Jastrzębie-Zdrój" %></a>
+        <a id="logoJZ" href="http://www.jastrzebie.pl/"><%= image_tag 'header/logoJZ.png', alt: 'logo Jastrzębie-Zdrój' %></a>
+        <a id="logoKJZ" href="<%= root_path %>"><%= image_tag 'header/logoKJZ.png', alt: 'logo Konsultacje Jastrzębie-Zdrój' %></a>
         <div id="headerRight">
           <ul id="fontsTools">
             <li><a class="fontSizeMinus" title="Pomniejsz stronę">-A</a></li>
@@ -50,13 +50,13 @@
         </div>
         <nav>
           <ul>
-            <li><%= link_to "Aktualne", consultations_list_path(ctype: 0) %></li>
-            <li><%= link_to "Planowane", consultations_list_path(ctype: 1) %></li>
-            <li><%= link_to "Zakończone", consultations_list_path(ctype: 2) %></li>
+            <li><%= link_to 'Aktualne', consultations_list_path(ctype: 0) %></li>
+            <li><%= link_to 'Planowane', consultations_list_path(ctype: 1) %></li>
+            <li><%= link_to 'Zakończone', consultations_list_path(ctype: 2) %></li>
           </ul>
         </nav>
         <% if @index_page %>
-        <h1 class="textCenter">Zapraszamy Was do korzystania <br/>z platformy konsultacji społecznych</h1>
+        <h1 class="textCenter">Zapraszamy Was do korzystania <br/>z platformy konsultacji społecznych<br/>Wersja testowa platformy</h1>
         <h2 class="textCenter">To miejsce, gdzie możecie Państwo zapoznać się z projektami i opisami ważnych przedsięwzięć podejmowanych przez nasze miasto oraz podzielić się swoimi opiniami na ich temat.</h2>
         <a class="headerMoreButton">Dowiedz się więcej</a>
         <% end %>
@@ -72,22 +72,21 @@
           <p>Created by <a href="http://media30.pl/"><strong>Media 3.0</strong></a></p>
         </div>
         <ul id="socialMedia">
-          <li><a href="#" class="socialMediaIcon facebook" title="socialMedia facebook"></a></li>
-          <li><a href="#" class="socialMediaIcon twitter" title="socialMedia twitter"></a></li>
-          <li><a href="#" class="socialMediaIcon google" title="socialMedia google"></a></li>
-          <li><a href="#" class="socialMediaIcon youtube" title="socialMedia youtube"></a></li>
+          <li><a href="https://www.facebook.com/Miasto.Jastrzebie.Zdroj" class="socialMediaIcon facebook" title="socialMedia facebook"></a></li>
+          <li><a href="https://www.youtube.com/user/MiastoJastrzebie" class="socialMediaIcon youtube" title="socialMedia youtube"></a></li>
         </ul>
         <ul id="footerNav">
           <% if user_signed_in? and current_user.admin? %>
-              <li><%= link_to "Panel Administracyjny", admin_root_path %></li>
+              <li><%= link_to 'Panel Administracyjny', admin_root_path %></li>
           <% end %>
 
           <% if user_signed_in? %>
-              <li><%= link_to "Wyloguj", destroy_user_session_path %></li>
+              <li><%= link_to 'Wyloguj', destroy_user_session_path %></li>
           <% end %>
 
           <% unless user_signed_in? %>
-              <li><%= link_to "Zaloguj przez facebook", user_omniauth_authorize_path(:facebook) %></li>
+              <li><%= link_to 'Zaloguj tradycyjnie', new_user_session_path %></li>
+              <li><%= link_to 'Zaloguj przez facebook', user_omniauth_authorize_path(:facebook) %></li>
           <% end %>
 
 

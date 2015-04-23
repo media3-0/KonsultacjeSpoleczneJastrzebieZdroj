@@ -1,5 +1,5 @@
 <div class="post reply">
-  <img src="<%= subcomment.user.image %>" class="avatar" alt="avatar" />
+  <img src="<%= subcomment.user.image.present? ? subcomment.user.image : asset_path('post/avatar.jpg') %>" class="avatar" alt="avatar" />
   <div class="content">
     <span><strong><%= subcomment.user.name %></strong> - <%= time_ago_in_words(subcomment.created_at) %> temu</span>
     <p><%= raw(h(subcomment.content).gsub(/\r/, '').gsub(/\n/, '<br>')) %></p>

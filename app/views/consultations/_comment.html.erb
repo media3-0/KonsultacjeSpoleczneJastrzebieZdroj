@@ -1,12 +1,14 @@
 <div class="post">
-  <img src="<%= comment.user.image %>" class="avatar" alt="avatar" />
+  <img src="<%= comment.user.image.present? ? comment.user.image : asset_path('post/avatar.jpg') %>" class="avatar" alt="avatar" />
   <div class="content"id="comment_<%= comment.id %>">
     <span><strong><%= comment.user.name %></strong> - <%= time_ago_in_words(comment.created_at) %> temu</span>
     <p><%= raw(h(comment.content).gsub(/\r/, '').gsub(/\n/, '<br>')) %></p>
     <%= link_to "pokaż odpowiedzi (#{comment.subcomments_count})", consultations_get_subcomments_path(id: comment.id),
                 remote: true, id: "showanswers_#{comment.id}", class: 'showReplyButton replyToComment' %>
-    <%= link_to "odpowiedz", consultations_get_subcomments_path(id: comment.id),
+    <% unless @consultation.consultation_type == 2 %>
+        <%= link_to "odpowiedz", consultations_get_subcomments_path(id: comment.id),
                 remote: true, id: "gotoreply_#{comment.id}", class: 'replyButton replyToComment instantReply' %>
+    <% end %>
   </div>
   <div class="loadingBox" style="display: none;" id="commentloadingbox_<%= comment.id %>">
     <span>trwa ładowanie komentarzy</span>

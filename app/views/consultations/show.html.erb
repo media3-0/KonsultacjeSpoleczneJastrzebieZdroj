@@ -3,7 +3,9 @@
       <article>
         <h1><%= @consultation.title %></h1>
         <ul class="articleInfo">
-          <li><div class="articleIcon clock"></div><span>Pozostało czasu: <%= distance_of_time_in_words(Time.now, @consultation.end_date) %></span></li>
+          <% unless @consultation.consultation_type == 2 %>
+              <li><div class="articleIcon clock"></div><span>Pozostało czasu: <%= distance_of_time_in_words(Time.now, @consultation.end_date) %></span></li>
+          <% end %>
           <li><div class="articleIcon comment"></div><span>Ilość opinii:<span class="commentscount"><%= @consultation.consultation_comments.count %></span></span></li>
         </ul>
         <%= raw @consultation.content %>
@@ -13,13 +15,13 @@
         <!--comments-->
         <div id="comment">
           <h4><span class="commentscount"><%= @consultation.consultation_comments.count %></span> opinie pod tą konsultacją</h4>
-          <% if user_signed_in? and current_user.uid %>
+          <% if user_signed_in? %>
               <p id="loggedas">Zalogowano jako: <%= current_user.name %></p>
 
               <div id="mycomment" <% unless @oldc %>style="display: none;"<% end %>>
                 <h4>Twój komentarz:</h4>
                   <div class="post">
-                    <img src="<%= current_user.image %>" class="avatar" alt="avatar" />
+                    <img src="<%= current_user.image.present? ? current_user.image : asset_path('post/avatar.jpg') %>" class="avatar" alt="avatar" />
                     <div class="content">
                       <span id="whoandago"><strong><%= current_user.name %></strong> - <%= time_ago_in_words(@oldc.created_at) if @oldc %> temu</span>
                       <p id="commenttext"><%= raw(h(@oldc.content).gsub(/\r/, '').gsub(/\n/, '<br>')) if @oldc %></p>
@@ -28,9 +30,9 @@
                   </div>
               </div>
 
-              <% unless @oldc %>
+              <% unless @oldc or @consultation.consultation_type == 2 %>
               <div class="post add" id="addmaincomment">
-                <img src="<%= current_user.image %>" class="avatar" alt="avatar" />
+                <img src="<%= current_user.image.present? ? current_user.image : asset_path('post/avatar.jpg') %>" class="avatar" alt="avatar" />
                 <div class="content">
                   <%= form_for :consultation_comment, remote: true, url: consultations_add_comment_path, html: { id: 'addmaincommentform'}, method: 'POST' do |f| %>
                       <input type="hidden" name="consultation_id" value="<%= @consultation.id %>" />
@@ -49,7 +51,7 @@
               </div>
               <% end %>
           <% else %>
-          <%= link_to "zaloguj przez facebook", user_omniauth_authorize_path(:facebook), class: 'signInFacebookButton' %>
+            <%= link_to "zaloguj się aby dodać opinię", new_user_session_path, class: 'signInFacebookButton' %>
           <% end %>
 
           <h4>Opinie</h4>
@@ -62,7 +64,9 @@
         <%= link_to "Więcej konsultacji", consultations_list_path(ctype: @consultation.consultation_type), class: "articleMoreButton" %>
         <% for consultation in @consultations %>
         <a href="<%= consultations_show_path(id: consultation.id) %>" class="articleBox post">
-          <span class="textCenter">Do końca pozostało: <%= distance_of_time_in_words(Time.now, @consultation.end_date) %></span>
+          <% unless @consultation.consultation_type == 2 %>
+              <span class="textCenter">Do końca pozostało: <%= distance_of_time_in_words(Time.now, @consultation.end_date) %></span>
+          <% end %>
           <h3 class="textCenter"><%= consultation.title %></h3>
           <div class="articleIconCloud"><%= consultation.consultation_comments.count %> komentarze</div>
         </a>

@@ -37,7 +37,7 @@ ActiveAdmin.register_page 'Dashboard' do
          panel 'Ostatnio aktywni użytkownicy' do
            ul do
              User.order(last_sign_in_at: :desc).take(5).map do |user|
-               li link_to(user.name + ': ' + user.last_sign_in_at.to_s, admin_user_path(user))
+               li link_to(user.email + ': ' + user.last_sign_in_at.to_s, admin_user_path(user))
              end
            end
          end

@@ -4,7 +4,9 @@
     <div id="articleListMainPage">
       <% for consultation in @consultations %>
       <a href="<%= consultations_show_path(id: consultation.id) %>" class="articleBox two">
-        <span class="textCenter">Do końca pozostało: <%= distance_of_time_in_words(Time.now, consultation.end_date) %></span>
+        <% unless consultation.consultation_type == 2 %>
+            <span class="textCenter">Do końca pozostało: <%= distance_of_time_in_words(Time.now, consultation.end_date) %></span>
+        <% end %>
         <h3 class="textCenter"><%= consultation.title %></h3>
         <div class="articleIconCloud"><%= consultation.consultation_comments.count %> komentarze</div>
       </a>

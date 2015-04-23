@@ -10,7 +10,7 @@ ActiveAdmin.register Consultation do
 		f.inputs 'Stwórz konsultację' do
 
 			f.input :title, :label => 'Tytuł'
-			f.input :content, :as => :rich, :config => {width: '76%', height: '400px'}, :label => 'Treść'
+			f.input :content, :as => :rich, :config => {width: '76%', height: '400px', removeDialogTabs: ''}, :label => 'Treść'
       f.input :consultation_type, :as => :radio, :collection => {Aktualne: 0, Planowane: 1, Zakończone: 2}, :label => 'Typ'
       f.input :end_date, :label => 'Zakończenie konsultacji'
 			f.input :formid, :label => 'Id formularza google'

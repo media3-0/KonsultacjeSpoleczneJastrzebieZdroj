@@ -21,8 +21,9 @@ gem 'devise', '~> 3.4.1'
 gem 'omniauth-facebook'
 
 gem 'cancancan', '~> 1.10'
-#kolejne 
+
 gem 'rails-i18n', '~> 4.0.4'
+gem 'devise-i18n'
 gem 'mini_magick'
 
 gem 'rich', :github => 'kreativgebiet/rich'

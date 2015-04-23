@@ -1,0 +1,39 @@
+<h2>Rejestracja</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Hasło' %>
+      <% if @validatable %>
+          <em>(Minimum <%= @minimum_password_length %> znaków)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Powtórz hasło' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Imię nazwisko' %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :citizen %>
+      <%= f.label 'Jestem mieszkańcem Jastrzębia-Zdroju' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Zarejestruj' %>
+    </div>
+<% end %>
+
+<%= render 'users/shared/links' %>

@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
       redirect = stored_location_for(resource_or_scope)
       return redirect if redirect.present?
     end
+    consultations_index_url
   end
 
 end

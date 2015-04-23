@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.app_domain = 'http://konsultacje.media30.usermd.net:80/'
+  config.app_domain = 'http://konsultacje.jastrzebie.pl/'
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -77,4 +77,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :sendmail
+
+  config.action_mailer.default_url_options = { :host => 'konsultacje.jastrzebie.pl/'}
 end
