@@ -51,7 +51,7 @@ class ConsultationsController < ApplicationController
         end
       end
 
-      unless current_user and current_user.uid != nil
+      unless current_user
         @message = 'Użytkownik niezalogowany'
         format.js do
           return render js: <<-endjs
@@ -135,7 +135,7 @@ class ConsultationsController < ApplicationController
       return render layout: false, status: 404
     end
 
-    unless current_user and current_user.uid != nil
+    unless current_user
       @message = 'Użytkownik niezalogowany'
       return render layout: false, status: 404
     end
@@ -157,5 +157,13 @@ class ConsultationsController < ApplicationController
     if request.xhr?
       render partial: 'subcomment', locals: { subcomment: comment }
     end
+  end
+
+  def report_post
+    comment = ConsultationComment.find(params[:id])
+    if comment
+      UserMailer.report_email(comment).deliver
+    end
+    render :nothing => true, :status => 200, :content_type => 'text/html'
   end
 end

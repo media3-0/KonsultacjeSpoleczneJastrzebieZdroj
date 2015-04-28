@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'consultations/add_subcomment'
   get 'consultations/get_subcomments'
   get 'consultations/search'
+  get 'consultations/report_post'
 
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks', registrations: 'registrations' }

@@ -23,7 +23,7 @@ function updateComment(commentsCount, name, ago, content, commentId){
     $('#addmaincomment').remove();
     $('.commentscount').text(commentsCount);
     $('#whoandago').html("<strong>"+ name +"</strong> "+ ago +" - temu");
-    $('#commenttext').html(content); //TODO : walka z enterami
+    $('#commenttext').html(content);
     $('#gotocomment').attr('onclick', "$('#comment_'" + commentId + ").animatescroll();");
     $('#mycomment').show();
     $('#commentloadingbox').hide();

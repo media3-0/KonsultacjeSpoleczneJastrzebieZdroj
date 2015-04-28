@@ -90,14 +90,17 @@ header{
   background: asset_url("header/background.jpg") no-repeat center top;
   position: relative;
   width: 100%;
-  height: 445px;
   background-position: 50% 0;
   min-width: 1200px;
   background-size: cover;
 }
 
+header:not(.fullSize){
+  height: 445px;
+}
+
 header.fullSize{
-  height: 760px;
+
 }
 
 header .pagewidth #logoJZ{
@@ -114,7 +117,7 @@ header .pagewidth #logoKJZ{
 
 header .pagewidth #headerRight{
   float: right;
-  width: 400px;
+  width: 250px;
 }
 
 header .pagewidth #fontsTools{
@@ -150,12 +153,15 @@ header .pagewidth #fontsTools li a:focus,
 }
 
 header .pagewidth #search{
-  margin-top: 34px;
+  margin-top: 15px;
   float: right;
 }
 
 header .pagewidth #search input[type="search"],
-#newsletter .pagewidth form input[type="text"]{
+#newsletter .pagewidth form input[type="text"],
+.accountForm .pagewidth form input[type="email"] ,
+.accountForm .pagewidth form input[type="password"],
+.accountForm .pagewidth form input[type="text"]{
   border-radius: 30px;
   -moz-border-radius: 30px;
   -webkit-border-radius: 30px;
@@ -174,26 +180,37 @@ header .pagewidth #search input[type="search"],
 #newsletter .pagewidth form input[type="text"]:hover,
 #newsletter .pagewidth form input[type="text"]:focus,
 header .pagewidth #search input[type="search"]:hover,
-header .pagewidth #search input[type="search"]:focus{
+header .pagewidth #search input[type="search"]:focus,
+.accountForm .pagewidth form input[type="email"]:hover,
+.accountForm .pagewidth form input[type="email"]:focus,
+.accountForm .pagewidth form input[type="password"]:hover,
+.accountForm .pagewidth form input[type="password"]:focus,
+.accountForm .pagewidth form input[type="text"]:hover,
+.accountForm .pagewidth form input[type="text"]:focus{
   -webkit-box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
   -moz-box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
   box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
 }
 
 header .pagewidth #search input[type="submit"],
-#newsletter .pagewidth form input[type="submit"]{
-  background-image: asset_url("header/searchIcon.png");
-  background-color: #05a857;
-  background-repeat: no-repeat;
-  background-position: center;
+#newsletter .pagewidth form input[type="submit"],
+.accountForm .pagewidth form input[type="submit"]{
   border-radius: 30px;
   -moz-border-radius: 30px;
   -webkit-border-radius: 30px;
-  width: 65px;
   padding: 16px 22px 16px 22px;
-  margin-left: -64px;
   cursor: pointer;
   float: left;
+  background-color: #05a857;
+  color: white;
+}
+
+header .pagewidth #search input[type="submit"]{
+  background-image: asset_url("header/searchIcon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: -64px;
+  width: 65px;
 }
 
 header .pagewidth #search input[type="submit"]:hover,
@@ -205,8 +222,45 @@ header .pagewidth #search input[type="submit"]:focus,
 #newsletter .pagewidth form input[type="submit"]:hover,
 #newsletter .pagewidth form input[type="submit"]:focus,
 #content .pagewidth article #comment .signInFacebookButton:hover,
-#content .pagewidth article #comment .signInFacebookButton:focus{
+#content .pagewidth article #comment .signInFacebookButton:focus,
+.accountForm .pagewidth form input[type="submit"]:hover,
+.accountForm .pagewidth form input[type="submit"]:focus{
   background-color: #7e7e7e;
+}
+
+header .pagewidth .buttonHeader{
+  float: right;
+  padding: 21px 26px 16px;
+  margin-top: 15px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  width: 165px;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  color: white;
+}
+
+header .pagewidth #signIn{
+   background-color: #05a857;
+ }
+
+header .pagewidth #signOut{
+  background-color: #05a857;
+}
+
+header .pagewidth #register{
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,1);
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,1);
+  box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,1);
+}
+
+header .pagewidth .buttonHeader:hover,
+header .pagewidth .buttonHeader:focus{
+  background: white!important;
+  color: #05a857;
 }
 
 header .pagewidth nav{
@@ -230,7 +284,7 @@ header .pagewidth nav ul li a{
   -moz-border-radius: 30px;
   -webkit-border-radius: 30px;
   color: white;
-  padding: 22px 22px 18px;
+  padding: 21px 22px 16px;
 }
 
 header .pagewidth nav ul li:nth-child(2) a{
@@ -242,7 +296,9 @@ header .pagewidth nav ul li:nth-child(3) a{
 }
 
 header .pagewidth nav ul li a:hover,
-header .pagewidth nav ul li a:focus{
+header .pagewidth nav ul li a:focus,
+header .pagewidth #signIn:hover,
+header .pagewidth #signIn:focus{
   background-color: #707070;
 }
 
@@ -287,6 +343,7 @@ header .pagewidth .headerMoreButton{
   letter-spacing: 2px;
   text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.4);
   cursor: pointer;
+  margin-bottom: 45px;
 }
 
 header .pagewidth .headerMoreButton:hover,
@@ -311,8 +368,7 @@ header .pagewidth .headerMoreButton:focus{
 
 #newsletter .pagewidth form input[type="submit"]{
   width: 200px;
-  color: white;
-  background-image: none;
+  margin-left: -64px;
 }
 
 footer{
@@ -403,6 +459,17 @@ footer .pagewidth #footerNav li{
   display: inline-block;
   vertical-align: top;
   overflow: hidden;
+}
+
+#content .pagewidth article h1 .completedConsultationBox{
+  color: white;
+  padding: 10px 15px;
+  display: inline-block;
+  background: #05a857;
+  font-size: 0.43em;
+  vertical-align: top;
+  line-height: 1.2em;
+  margin: 8px 12px;
 }
 
 #content .pagewidth article .articleInfo li{
@@ -513,13 +580,28 @@ footer .pagewidth #footerNav li{
   display: block;
 }
 
+#content .pagewidth article #comment .post.adminPost .content span strong{
+  color: #05a857;
+}
+
+#content .pagewidth article #comment .post.adminPost > .content span:after{
+  content: 'admin';
+  padding: 4px 15px;
+  background: #05a857;
+  margin: 0 5px;
+  font-size: 0.875em;
+  color: white;
+  vertical-align: top;
+}
+
 #content .pagewidth article #comment .post .content p{
   margin-top: 4px;
   font-size: 1.000em;
 }
 
 #content .pagewidth article #comment .post .content .replyButton,
-#content .pagewidth article #comment .post .content .showReplyButton{
+#content .pagewidth article #comment .post .content .showReplyButton,
+#content .pagewidth article #comment .post .content .reportButton{
   font-size: 0.875em;
   opacity: 0.7;
   padding: 3px 10px;
@@ -534,8 +616,67 @@ footer .pagewidth #footerNav li{
 #content .pagewidth article #comment .post .content .replyButton:hover,
 #content .pagewidth article #comment .post .content .replyButton:focus,
 #content .pagewidth article #comment .post .content .showReplyButton:hover,
-#content .pagewidth article #comment .post .content .showReplyButton:focus{
+#content .pagewidth article #comment .post .content .showReplyButton:focus,
+#content .pagewidth article #comment .post .content .reportButton:hover,
+#content .pagewidth article #comment .post .content .reportButton:focus{
   opacity: 1;
+}
+
+.reportBox,
+.signInBox{
+  position: absolute;
+  width: 280px;
+  color: white;
+  text-align: center;
+  background-color: #05a857;
+  padding: 20px 0;
+  margin-top: 22px;
+  clear: both;
+  display: inline-block;
+  -webkit-box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4);
+}
+
+.signInBox{
+  margin-left: -40px;
+  margin-top: -2px;
+}
+
+.reportBox a,
+.signInBox a{
+  padding: 2px 10px;
+  font-size: 0.9em;
+  display: inline-block;
+  text-align: center;
+  color: #05a857;
+  background: white;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.signInBox a{
+  margin-top: 5px;
+}
+
+.reportBox a:hover,
+.signInBox a:hover,
+.signInBox button:hover{
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,1);
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,1);
+  box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,1);
+  color: #FFFFFF;
+}
+
+.reportBox a.no:hover,
+.alert.error{
+  background: rgb(240, 77, 77);
+}
+
+.reportBox a.yes:hover,
+.signInBox a:hover,
+.signInBox button:hover{
+  background: rgb(78, 78, 78);
 }
 
 #content .pagewidth article #comment .post.reply{
@@ -680,6 +821,7 @@ footer .pagewidth #footerNav li{
 .mainPage.gray{
   background: #ebebeb;
 }
+
 .mainPage .pagewidth ul{
   color: #727272;
   font-size: 1.5em;
@@ -691,7 +833,13 @@ footer .pagewidth #footerNav li{
   padding: 32px 0 60px;
 }
 
-.mainPage .pagewidth a:hover{
+.mainPage .pagewidth a,
+.accountForm .pagewidth a{
+  color: #05a857;
+}
+
+.mainPage .pagewidth a:hover,
+.accountForm .pagewidth a:hover{
   text-decoration: underline;
 }
 
@@ -700,56 +848,144 @@ footer .pagewidth #footerNav li{
   padding: 30px 0 30px 70px;
 }
 
+/* account form */
+
+.accountForm{
+  padding: 0 0 60px;
+}
+
+.accountForm .pagewidth .main{
+  width: 60%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.accountForm .pagewidth .aside{
+  display: inline-block;
+  vertical-align: top;
+  width: 38%;
+}
+
+.accountForm .pagewidth .aside img{
+  margin: 30px auto 0;
+  display: block;
+}
+
+.accountForm .pagewidth .aside img.marginTop{
+  margin: 70px auto 0;
+}
+
+.accountForm .pagewidth .aside img.marginTopOff{
+  margin: 0 auto 0;
+}
+
+.accountForm .pagewidth .aside img.marginTopMinus{
+  margin: -30px auto 0;
+}
+
+.accountForm .pagewidth form{
+  width: 100%;
+  margin: 10px 0;
+}
+
+.accountForm .pagewidth form input[type="email"] ,
+.accountForm .pagewidth form input[type="password"],
+.accountForm .pagewidth form input[type="text"],
+.accountForm .pagewidth form input[type="submit"] {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.accountForm .pagewidth form .fieldCheckBox{
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.accountForm .pagewidth form .fieldCheckBox label,
+.accountForm .pagewidth form .fieldCheckBox input[type="checkbox"]{
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.accountForm .pagewidth form .fieldCheckBox input[type="checkbox"]{
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+}
+
+.accountForm .pagewidth a{
+  font-weight: 500;
+  line-height: 1.550em;
+  margin-left: 10px;
+  display: block;
+}
+
 /* cookie */
 
 #cookiesEU-box{
   background: #05a857;
   overflow: hidden;
+  text-align: center;
 }
 
 .cookiesEU-inner{
   padding: 4px 12px;
-  display: inline-block;
+  /*display: inline-block;*/;
 }
 
 .cookiesEU-text{
-  width: 90%;
-  width: calc(100% - 150px);
+  text-align: center;
   color: white;
-  float: left;
   margin-top: 6px;
   font-size: 0.9em;
+  display: inline-block;
+}
+
+.cookiesEU-text a{
+  color: white;
+  text-decoration: underline;
 }
 
 .cookiesEU-close{
-  padding: 15px 15px;
+  padding: 2px 10px;
+  font-size: 0.9em;
   display: inline-block;
-  float:right;
   color: #05a857;
   background: white;
-  text-transform: uppercase;
+  margin-left: 10px;
 }
 
 /* loading */
 
-.loadingBox {
+.loadingBox,
+.alert {
   text-align: center;
-  background-color: #05a857;
   padding: 20px 0;
   width: 100%;
-  margin-top:12px;
   clear: both;
   display: inline-block;
 }
 
-.loadingBox.fullSize{
+.loadingBox,
+.alert.margin-top{
+  margin-top:12px;
+}
+
+.loadingBox,
+.alert.success{
+  background: #05a857;
+}
+
+.loadingBox.fullSize,
+.alert.fullSize{
   position: fixed;
   top: 50%;
   z-index: 9999;
-  -webkit-box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4);
-  box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4);
-  margin-top: -48px;
+  -webkit-box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4)!important;
+  -moz-box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4)!important;
+  box-shadow: 0px 0px 10000px 10000px rgba(0,0,0,0.4)!important;
 }
 
 .loadingBox span{
@@ -795,4 +1031,65 @@ footer .pagewidth #footerNav li{
       transform: scale(1.0);
       -webkit-transform: scale(1.0);
     }
+}
+
+/* alert */
+
+.alert.margin-bottom{
+  margin-top:12px;
+}
+
+.alert.margin-tb{
+  margin:12px 0;
+}
+
+.alert span{
+  color: white;
+  padding: 10px;
+}
+
+.alert.right{
+  text-align: right;
+}
+
+.alert.left{
+  text-align: left;
+}
+
+.alert.justify{
+  text-align: justify;
+}
+
+.alert.info{
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(24,22,23,1);
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(24,22,23,1);
+  box-shadow: inset 0px 0px 0px 1px rgba(24,22,23,1);
+  background: white;
+}
+
+.alert.info span{
+  color: #7e7e7e;
+}
+
+.alert.fullSize button,
+.signInBox button{
+  padding: 2px 10px;
+  font-size: 0.9em;
+  display: inline-block;
+  text-align: center;
+  color: #05a857;
+  background: white;
+  margin-left: 10px;
+  cursor: pointer;
+  border:0;
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
+  box-shadow: inset 0px 0px 0px 1px rgba(5,168,87,1);
+}
+
+.alert.fullSize.error button{
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
+  box-shadow: inset 0px 0px 0px 1px rgba(203,203,203,1);
+  color: rgb(240, 77, 77);
 }

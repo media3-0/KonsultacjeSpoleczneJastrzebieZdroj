@@ -43,6 +43,12 @@
             <li><a class="fontReset" title="Przywróć podstawową wielkość strony">A</a></li>
             <li><a class="fontSizePlus" title="Powiększ stronę">+A</a></li>
           </ul>
+          <% unless user_signed_in? %>
+              <%= link_to 'zaloguj', new_user_session_path, class: 'buttonHeader', id: 'signIn' %>
+              <%= link_to 'rejestracja', new_user_registration_path, class: 'buttonHeader', id: 'register' %>
+          <% else %>
+              <%= link_to 'wyloguj', destroy_user_session_path, class: 'buttonHeader', id: 'signOut' %>
+          <% end %>
           <form id="search" action="<%= url_for consultations_search_path %>" method="get">
             <input type="search" placeholder="szukaj..." title="szukaj" name="q"/>
             <input type="submit" value=" " title="wyślij"/>
@@ -56,7 +62,7 @@
           </ul>
         </nav>
         <% if @index_page %>
-        <h1 class="textCenter">Zapraszamy Was do korzystania <br/>z platformy konsultacji społecznych<br/>Wersja testowa platformy</h1>
+        <h1 class="textCenter">Platforma konsultacji społecznych <br/>Wersja testowa platformy</h1>
         <h2 class="textCenter">To miejsce, gdzie możecie Państwo zapoznać się z projektami i opisami ważnych przedsięwzięć podejmowanych przez nasze miasto oraz podzielić się swoimi opiniami na ich temat.</h2>
         <a class="headerMoreButton">Dowiedz się więcej</a>
         <% end %>
@@ -76,6 +82,7 @@
           <li><a href="https://www.youtube.com/user/MiastoJastrzebie" class="socialMediaIcon youtube" title="socialMedia youtube"></a></li>
         </ul>
         <ul id="footerNav">
+
           <% if user_signed_in? and current_user.admin? %>
               <li><%= link_to 'Panel Administracyjny', admin_root_path %></li>
           <% end %>
@@ -89,7 +96,7 @@
               <li><%= link_to 'Zaloguj przez facebook', user_omniauth_authorize_path(:facebook) %></li>
           <% end %>
 
-
+          <li>Regulamin</li>
         </ul>
       </div>
     </footer>

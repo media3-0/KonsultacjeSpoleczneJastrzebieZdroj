@@ -1,16 +1,18 @@
-<h2>Wyślij ponownie potwierdzenie na emaila</h2>
+<section class="accountForm" style="border-top: 1px solid grey;">
+  <div class="pagewidth">
+    <h1>Wyślij ponownie <br/>potwierdzenie na e-mail</h1>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="main">
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+          <%= devise_error_messages! %>
+          <%= f.email_field :email, autofocus: true, placeholder: 'Adres e-mail' %>
+          <%= f.submit 'WYŚLIJ PONOWNIE POTWIERDZENIE' %>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <%= render 'users/shared/links' %>
+    </div>
+    <div class="aside">
+      <img src="<%= asset_path('account/2.png') %>" alt="people icon" class="marginTopMinus"/>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit 'Wyślij ponownie potwierdzenie' %>
-  </div>
-<% end %>
-
-<%= render 'users/shared/links' %>
+</section>

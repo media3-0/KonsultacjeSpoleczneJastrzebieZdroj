@@ -1,22 +1,21 @@
-<h2>Zmiana hasła</h2>
+<section class="accountForm" style="border-top: 1px solid grey;">
+  <div class="pagewidth">
+    <h1>Zapomniałeś hasła?</h1>
+    <div class="main">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+          <%= f.hidden_field :reset_password_token %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+          <%= f.password_field :password, autofocus: true, autocomplete: 'off', placeholder: 'Nowe hasło' %>
+          <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'Potwierdź hasło' %>
+          <%= f.submit 'ZMIEŃ HASŁO' %>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :password, "Nowe hasło" %><br />
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+      <%= render 'users/shared/links' %>
+
+    </div>
+    <div class="aside">
+      <img src="<%= asset_path('account/4.png') %>" alt="people icon" class="marginTopOff"/>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Potwierdź hasło" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Zmień hasło" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</section>

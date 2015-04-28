@@ -1,4 +1,4 @@
-<div class="post reply">
+<div class="post reply <% if subcomment.user.admin %>adminPost<% end %>">
   <img src="<%= subcomment.user.image.present? ? subcomment.user.image : asset_path('post/avatar.jpg') %>" class="avatar" alt="avatar" />
   <div class="content">
     <span><strong><%= subcomment.user.name %></strong> - <%= time_ago_in_words(subcomment.created_at) %> temu</span>

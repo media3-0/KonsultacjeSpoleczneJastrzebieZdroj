@@ -180,6 +180,11 @@ pl:
       not_an_integer: musi być liczbą całkowitą
       odd: musi być nieparzyste
       present: musi być puste
+      not_saved:
+        few: "%{resource} nie został zachowany z powodu %{count} błędów"
+        many: "%{resource} nie został zachowany z powodu %{count} błędów"
+        one: "%{resource} nie został zachowany z powodu jednego błędu"
+        other: "%{resource} nie został zachowany z powodu %{count} błędów"
       record_invalid: 'Negatywne sprawdzenie poprawności: %{errors}'
       restrict_dependent_destroy:
         many: Nie może zostać usunięte, gdyż istnieją zależne od niego %{record}

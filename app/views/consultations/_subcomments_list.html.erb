@@ -1,7 +1,7 @@
 <% for subcomment in subcomments %>
     <%= render partial: 'subcomment', locals: {subcomment: subcomment} %>
 <% end %>
-<% if user_signed_in? and current_user.uid and subcomments.consultation_comment.consultation_type != 2 %>
+<% if user_signed_in? and comment.consultation.consultation_type != 2 %>
 <div class="post reply add" id="subcommentForm_<%= comment.id.to_s %>">
   <img src="<%= current_user.image.present? ? current_user.image : asset_path('post/avatar.jpg') %>" class="avatar" alt="avatar" />
   <div class="content">

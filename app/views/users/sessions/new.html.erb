@@ -1,26 +1,22 @@
-<h2>Zaloguj się</h2>
+<section class="accountForm">
+  <div class="pagewidth">
+    <h1>Zaloguj się</h1>
+    <div class="main">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <%= f.email_field :email, autofocus: true, placeholder: 'Adres e-mail' %>
+          <%= f.password_field :password, autocomplete: "off", placeholder: 'Hasło' %>
+        <div class="fieldCheckBox">
+          <%= f.check_box :remember_me %>
+          <label for="user_remember_me">Zapamiętaj mnie (automatyczne logowanie)</label>
+        </div>
+          <%= f.submit 'ZALOGUJ SIĘ' %>
+      <% end %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'Hasło' %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label 'Zapamiętaj mnie' %>
+      <%= render 'users/shared/links' %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit 'Zaloguj się' %>
+    <div class="aside">
+      <img src="<%= asset_path('account/1.png') %>" alt="people icon"/>
+    </div>
   </div>
-<% end %>
-
-<%= render 'users/shared/links' %>
+</section>
