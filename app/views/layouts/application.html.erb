@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl-PL" dir="ltr">
 <head>
   <!-- Created by Media 3.0 -->
   <meta charset="utf-8" />
-  <meta name="language" content="pl" />
   <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
   <meta name="viewport" content="width=1200" />
-  <title>Konsultacje Społeczne Jastrzębie-Zdrój</title>
+  <title><%= yield :title %></title>
 
   <meta name="author" content="Fundacja Media 3.0" />
   <meta name="description" content="To miejsce, gdzie możecie Państwo zapoznać się z projektami i opisami ważnych przedsięwzięć podejmowanych przez nasze miasto oraz podzielić się swoimi opiniami na ich temat." />
@@ -35,13 +34,20 @@
 <body>
     <header <% if @index_page %>class="fullSize"<% end %>>
       <div class="pagewidth">
-        <a id="logoJZ" href="http://www.jastrzebie.pl/"><%= image_tag 'header/logoJZ.png', alt: 'logo Jastrzębie-Zdrój' %></a>
-        <a id="logoKJZ" href="<%= root_path %>"><%= image_tag 'header/logoKJZ.png', alt: 'logo Konsultacje Jastrzębie-Zdrój' %></a>
+        <ul class="navwcag hiddenwcag">
+          <li><a href="#topmenu" tabindex="4">Przejdź do menu</a></li>
+          <li><a href="#content" tabindex="5">Przejdź do treści</a></li>
+          <li><a href="/sitemap.html" tabindex="6">Mapa strony</a></li>
+        </ul>
+        <a id="logoJZ" href="http://www.jastrzebie.pl/"><%= image_tag 'header/logoJZ.png', alt: 'Oficjalny serwis miasta Jastrzębie-Zdrój' %></a>
+        <h1><a id="logoKJZ" tabindex="1" href="<%= root_path %>"><%= image_tag 'header/logoKJZ.png', alt: 'Konsultacje Jastrzębie-Zdrój' %></a></h1>
         <div id="headerRight">
           <ul id="fontsTools">
             <li><a class="fontSizeMinus" title="Pomniejsz stronę">-A</a></li>
             <li><a class="fontReset" title="Przywróć podstawową wielkość strony">A</a></li>
             <li><a class="fontSizePlus" title="Powiększ stronę">+A</a></li>
+            <li><a class="fontNContrast" href="javascript:HighContrastOff();" title="Domyślny kontrast strony">A</a></li>
+            <li><a class="fontWBContrast" href="javascript:HighContrastOn();" title="Kontrast czarno-biały strony">A</a></li>
           </ul>
           <% unless user_signed_in? %>
               <%= link_to 'zaloguj', new_user_session_path, class: 'buttonHeader', id: 'signIn' %>
@@ -50,20 +56,21 @@
               <%= link_to 'wyloguj', destroy_user_session_path, class: 'buttonHeader', id: 'signOut' %>
           <% end %>
           <form id="search" action="<%= url_for consultations_search_path %>" method="get">
-            <input type="search" placeholder="szukaj..." title="szukaj" name="q"/>
-            <input type="submit" value=" " title="wyślij"/>
+            <label for="searchbox" class="hiddenwcag">Wyszukiwarka:</label>
+            <input type="search" placeholder="szukaj..." tabindex="2" title="szukaj" name="q"/>
+            <input type="submit" value=" " tabindex="3" title="Kliknij aby wyszukać"/>
           </form>
         </div>
         <nav>
           <ul>
-            <li><%= link_to 'Aktualne', consultations_list_path(ctype: 0) %></li>
-            <li><%= link_to 'Planowane', consultations_list_path(ctype: 1) %></li>
-            <li><%= link_to 'Zakończone', consultations_list_path(ctype: 2) %></li>
+            <li><%= nav_link 'Aktualne', consultations_list_path(ctype: 0), 'Aktualne konsultacje', 7 %></li>
+            <li><%= nav_link 'Planowane', consultations_list_path(ctype: 1), 'Planowane konsultacje' %></li>
+            <li><%= nav_link 'Zakończone', consultations_list_path(ctype: 2), 'Zakończone konsultacje' %></li>
           </ul>
         </nav>
         <% if @index_page %>
-        <h1 class="textCenter">Platforma konsultacji społecznych <br/>Wersja testowa platformy</h1>
-        <h2 class="textCenter">To miejsce, gdzie możecie Państwo zapoznać się z projektami i opisami ważnych przedsięwzięć podejmowanych przez nasze miasto oraz podzielić się swoimi opiniami na ich temat.</h2>
+        <h2 class="textCenter">Platforma konsultacji społecznych</h2>
+        <h3 class="textCenter">To miejsce, gdzie możecie Państwo zapoznać się z projektami i opisami ważnych przedsięwzięć podejmowanych przez nasze miasto oraz podzielić się swoimi opiniami na ich temat.</h3>
         <a class="headerMoreButton">Dowiedz się więcej</a>
         <% end %>
       </div>
@@ -78,10 +85,12 @@
           <p>Created by <a href="http://media30.pl/"><strong>Media 3.0</strong></a></p>
         </div>
         <ul id="socialMedia">
-          <li><a href="https://www.facebook.com/Miasto.Jastrzebie.Zdroj" class="socialMediaIcon facebook" title="socialMedia facebook"></a></li>
-          <li><a href="https://www.youtube.com/user/MiastoJastrzebie" class="socialMediaIcon youtube" title="socialMedia youtube"></a></li>
+          <li><a href="https://www.facebook.com/Miasto.Jastrzebie.Zdroj" class="socialMediaIcon facebook" title="Miasto Jastrzębie-Zdrój na Facebook'u"></a></li>
+          <li><a href="https://www.youtube.com/user/MiastoJastrzebie" class="socialMediaIcon youtube" title="Miasto Jastrzębie-Zdrój na Youtube"></a></li>
         </ul>
         <ul id="footerNav">
+
+          <li><%= link_to 'Mapa strony', consultations_sitemap_path -%></li>
 
           <% if user_signed_in? and current_user.admin? %>
               <li><%= link_to 'Panel Administracyjny', admin_root_path %></li>

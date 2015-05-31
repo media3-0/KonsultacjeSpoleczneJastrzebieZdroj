@@ -1,6 +1,10 @@
+<% content_for :title do %>
+    Konsultacje Jastrzębie-Zdrój - Lista konsultacji
+<% end %>
+
 <section id="content">
   <div class="pagewidth">
-    <h1 class="textCenter"><%= @consultation_type %></h1>
+    <h2 class="textCenter"><%= @consultation_type %></h2>
     <div id="articleListMainPage">
       <% for consultation in @consultations %>
       <a href="<%= consultations_show_path(id: consultation.id) %>" class="articleBox two">

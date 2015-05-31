@@ -17,6 +17,7 @@
 //= require autosize
 //= require animatescroll
 //= require scripts
+//= require contrast
 //= require turbolinks
 
 function updateComment(commentsCount, name, ago, content, commentId){

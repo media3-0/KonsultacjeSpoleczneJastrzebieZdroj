@@ -6,6 +6,10 @@ class ConsultationsController < ApplicationController
     @index_page = true
   end
 
+  def sitemap
+    
+  end
+
   # TODO : edycja i usuwanie
 
   def search

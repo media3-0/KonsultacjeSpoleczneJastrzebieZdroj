@@ -1,0 +1,24 @@
+<% content_for :title do %>
+    Konsultacje Jastrzębie-Zdrój - Lista konsultacji
+<% end %>
+
+<section class="siteMap" id="content">
+  <div class="pagewidth">
+    <h2>Mapa strony</h2>
+    <article>
+      <div class="main">
+        <ul class="sitemap">
+          <li><a href="<%= url_for root_path -%>">Strona główna</a></li>
+          <li><a href="<%= url_for new_user_session_path -%>">Zaloguj się</a></li>
+          <li><a href="<%= url_for new_user_registration_path -%>">Rejestracja</a></li>
+          <li><a href="<%= url_for consultations_list_path -%>?ctype=0">Aktualne konsultacje</a></li>
+          <li><a href="<%= url_for consultations_list_path -%>?ctype=1">Planowane konsultacje</a></li>
+          <li><a href="<%= url_for consultations_list_path -%>?ctype=2">Zakończone konsultacje</a></li>
+          <li><a href="<%= url_for consultations_sitemap_path -%>">Mapa strony</a></li>
+          <li><a href="#">Regulamin</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+</section>

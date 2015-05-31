@@ -169,5 +169,13 @@ function initScriptsJs(){
 
     hideFullBox(".signInBox");
 
+    $(document).on('click', ".fontNContrast", function() {
+        $$("body").removeClass("black");
+    });
+
+    $(document).on('click', ".fontWBContrast", function() {
+        $("body").addClass("black");
+    });
+
     textareafix();
 }
