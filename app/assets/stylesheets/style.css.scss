@@ -468,10 +468,6 @@ footer .pagewidth #footerNav li{
   overflow: hidden;
 }
 
-#content .pagewidth article h1{
-  font-size: 2em;
-}
-
 #content .pagewidth article h2 .completedConsultationBox{ /* tu bylo h1 */
   color: white;
   padding: 10px 15px;
@@ -774,18 +770,13 @@ footer .pagewidth #footerNav li{
   height: 226px;
 }
 
-#content .pagewidth .articleBox.two h3{
-  font-size: 1.2em;
-}
-
 #content .pagewidth .articleBox.post{
   width: 250px;
 
 }
 
 #content .pagewidth .articleBox.post h3{
-  /*font-size: 1.313em;*/
-  font-size: 1em;
+  font-size: 1.313em;
   padding: 5px 0 12px;
 }
 
@@ -1171,6 +1162,7 @@ footer .pagewidth #footerNav li{
 
 body.black header{
   background-image: none!important;
+  background: #000;
 }
 
 body.black input[type="submit"],
@@ -1178,4 +1170,9 @@ body.black header .pagewidth nav ul li a{
   -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,1);
   -moz-box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,1);
   box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,1);
+}
+
+.youtubeiframe {
+  float: left;
+  margin: 0 40px 15px 0;
 }

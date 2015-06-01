@@ -103,19 +103,65 @@ function getCookie(cname) {
     return "";
 }
 
-jQuery(function(){
-	var oldFontSize = getCookie('fontSize');
-	if (oldFontSize != '')
-		if (oldFontSize != 0){	
-			if (oldFontSize > 0)
-				for(var i=0; i<=oldFontSize; i++)
-					changeFontSize(1.02, true);
-			if (oldFontSize < 0)
-				for(var i=0; i>=oldFontSize; i--)
-					changeFontSize(0.98, true);
-		}
-	var highContrast = getCookie('highContrast');
-	if (highContrast != '')
-		if (highContrast == 1)
-			HighContrastOn();
+function getValueBackgroundCookie(bname){
+	var oldBackgroundStyle = getCookie(bname);
+	console.log(oldBackgroundStyle);
+	return oldBackgroundStyle;
+}
+
+function changeValueBackgroundCookie(bname, contrast){
+		setCookie(bname, contrast, 360);
+		$("body").removeClass("black");
+}
+
+function setBackground(){
+	if (getCookie('backgroundCookie') == '1'){ 
+		$("body").addClass("black");
+		HighContrastOn();
+	}
+	if (getCookie('backgroundCookie') == '0'){ 
+		$("body").removeClass("black");
+		//HighContrastOff();
+	}
+}
+
+$(document).on('click', ".fontNContrast", function() {
+	changeValueBackgroundCookie('backgroundCookie', '0');
+	setBackground();
+});
+
+$(document).on('click', ".fontWBContrast", function() {
+	changeValueBackgroundCookie('backgroundCookie', '1');
+	setBackground();
+});
+
+function setContrast(){
+    if (getCookie('backgroundCookie') == ''){
+        setCookie('backgroundCookie', 0, 360);
+    }
+    setBackground();
+    //alert(getValueBackgroundCookie('backgroundCookie'));
+
+    var oldFontSize = getCookie('fontSize');
+    if (oldFontSize != '')
+        if (oldFontSize != 0){
+            if (oldFontSize > 0)
+                for(var i=0; i<=oldFontSize; i++)
+                    changeFontSize(1.02, true);
+            if (oldFontSize < 0)
+                for(var i=0; i>=oldFontSize; i--)
+                    changeFontSize(0.98, true);
+        }
+    var highContrast = getCookie('highContrast');
+    if (highContrast != '')
+        if (highContrast == 1)
+            HighContrastOn();
+}
+
+$(document).on('page:load', function(){
+	setContrast();
+});
+
+$(function(){
+    setContrast();
 });
