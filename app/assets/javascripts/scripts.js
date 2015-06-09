@@ -70,7 +70,7 @@ function initScriptsJs(){
 
     //cookies
     jQuery.fn.cookiesEU({
-        text: 'Korzystanie z tej witryny oznacza zgodę użytkownika na wykorzystywanie cookies oraz zapoznanie się z <a href="#">regulaminem platformy</a>',
+        text: 'Korzystanie z tej witryny oznacza zgodę użytkownika na wykorzystywanie cookies oraz zapoznanie się z <a href="http://konsultacje.jastrzebie.pl/Regulamin_PKS.pdf">regulaminem platformy</a>',
         close: 'Zamknij',
         parent: jQuery('body'),
         animation: 'hide',
