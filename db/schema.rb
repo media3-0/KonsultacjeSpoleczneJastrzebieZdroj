@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421122120) do
+ActiveRecord::Schema.define(version: 20151013110220) do
 
-  create_table "active_admin_comments", force: true do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.integer  "author_id"
-    t.string   "author_type"
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace",     limit: 255
+    t.text     "body",          limit: 65535
+    t.string   "resource_id",   limit: 255,   null: false
+    t.string   "resource_type", limit: 255,   null: false
+    t.integer  "author_id",     limit: 4
+    t.string   "author_type",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,70 +28,86 @@ ActiveRecord::Schema.define(version: 20150421122120) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-  create_table "comments", force: true do |t|
-    t.text     "content"
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",    limit: 255, null: false
+    t.string   "data_content_type", limit: 255
+    t.integer  "data_file_size",    limit: 4
+    t.integer  "assetable_id",      limit: 4
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width",             limit: 4
+    t.integer  "height",            limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "consultation_comments", force: true do |t|
-    t.text     "content"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content",    limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "consultation_id"
-    t.integer  "parent_consultation_comment_id"
+  end
+
+  create_table "consultation_comments", force: :cascade do |t|
+    t.text     "content",                        limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",                        limit: 4
+    t.integer  "consultation_id",                limit: 4
+    t.integer  "parent_consultation_comment_id", limit: 4
   end
 
   add_index "consultation_comments", ["consultation_id"], name: "index_consultation_comments_on_consultation_id", using: :btree
   add_index "consultation_comments", ["parent_consultation_comment_id"], name: "index_consultation_comments_on_parent_consultation_comment_id", using: :btree
   add_index "consultation_comments", ["user_id"], name: "index_consultation_comments_on_user_id", using: :btree
 
-  create_table "consultations", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "consultation_type"
+  create_table "consultations", force: :cascade do |t|
+    t.string   "title",             limit: 255
+    t.text     "content",           limit: 65535
+    t.integer  "consultation_type", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "formid"
+    t.string   "formid",            limit: 255
     t.datetime "end_date"
   end
 
-  create_table "rich_rich_files", force: true do |t|
+  create_table "rich_rich_files", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "rich_file_file_name"
-    t.string   "rich_file_content_type"
-    t.integer  "rich_file_file_size"
+    t.string   "rich_file_file_name",    limit: 255
+    t.string   "rich_file_content_type", limit: 255
+    t.integer  "rich_file_file_size",    limit: 4
     t.datetime "rich_file_updated_at"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.text     "uri_cache"
-    t.string   "simplified_type",        default: "file"
+    t.string   "owner_type",             limit: 255
+    t.integer  "owner_id",               limit: 4
+    t.text     "uri_cache",              limit: 65535
+    t.string   "simplified_type",        limit: 255,   default: "file"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "",    null: false
+    t.string   "encrypted_password",     limit: 255, default: "",    null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "image"
-    t.string   "confirmation_token"
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
+    t.string   "name",                   limit: 255
+    t.string   "image",                  limit: 255
+    t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "citizen",                default: false
+    t.boolean  "citizen",                            default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

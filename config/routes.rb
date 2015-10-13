@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  mount Rich::Engine => '/rich', :as => 'rich'
+  mount Ckeditor::Engine => '/ckeditor'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  #mount Rich::Engine => '/rich', :as => 'rich'
   get 'consultations/index'
   get 'consultations/list'
   get 'consultations/show'
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   get 'consultations/report_post'
   get 'consultations/sitemap'
 
-  ActiveAdmin.routes(self)
+  #ActiveAdmin.routes(self)
   devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks', registrations: 'registrations' }
 
 

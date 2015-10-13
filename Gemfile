@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
+gem 'rails', '~> 4.2.0'
 # Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.20'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -15,23 +15,31 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 #kamil- active admin i devise
-gem 'activeadmin', github: 'activeadmin'
+#gem 'activeadmin', github: 'activeadmin'
+
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'rails_admin'
+gem 'ckeditor'
+gem 'font-awesome-rails'
 gem 'devise', '~> 3.4.1'
 
 gem 'omniauth-facebook'
 
 gem 'cancancan', '~> 1.10'
 
-gem 'rails-i18n', '~> 4.0.4'
+gem 'rails-i18n'
 gem 'devise-i18n'
-gem 'mini_magick'
 
-gem 'rich', :github => 'kreativgebiet/rich'
+#gem 'rich', :github => 'kreativgebiet/rich'
 
-gem "active_admin_multi_upload"
+#gem 'active_admin_multi_upload'
 
-gem 'paperclip'
+#gem 'paperclip'
 gem 'certified'
+
+gem 'enumerize'
 
 gem 'annotate', '~> 2.6.6', group: :development
 
@@ -46,6 +54,8 @@ gem 'rails-footnotes', '~> 4.0', group: :development
 gem 'rack-mini-profiler', group: :development
 
 gem 'binding_of_caller', group: :development
+
+gem 'thin'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
