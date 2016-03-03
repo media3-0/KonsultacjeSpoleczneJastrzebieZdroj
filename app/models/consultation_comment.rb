@@ -34,4 +34,18 @@ class ConsultationComment < ActiveRecord::Base
   def get_subcomments
     ConsultationComment.where(:parent_consultation_comment_id => id)
   end
+
+  rails_admin do
+    edit do
+      exclude_fields :consultation_comments
+    end
+
+    show do
+      exclude_fields :consultation_comments
+    end
+
+    list do
+      exclude_fields :consultation_comments
+    end
+  end
 end
