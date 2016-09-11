@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'carrierwave'
 gem 'mini_magick'
 
-gem 'rails_admin'
+gem 'rails_admin', '0.7.0'
 gem 'ckeditor'
 gem 'font-awesome-rails'
 gem 'devise', '~> 3.4.1'
